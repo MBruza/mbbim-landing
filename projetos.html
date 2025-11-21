@@ -4,13 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projetos | MBBIM Consultoria & Inovação</title>
-  <meta name="description" content="Projetos selecionados em BIM, planejamento 4D, quantificação, automações e implantação de processos digitais.">
+  <meta name="description"
+        content="Projetos selecionados em BIM, planejamento 4D, quantificação, automações e implantação de processos digitais.">
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    /* --- Ajustes da imagem principal --- */
+    .project-detail-image img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #0f1a20;
+      cursor: zoom-in;
+    }
+
+    /* --- Modal/Popup da imagem --- */
+    #image-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.85);
+      z-index: 9999;
+      padding: 40px;
+    }
+    #image-modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+    #image-modal .modal-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 32px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      color: white;
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  </style>
 </head>
+
 <body>
+
   <!-- Navbar -->
   <header class="navbar">
     <div class="container nav-content">
@@ -18,9 +70,7 @@
         <img src="img/logo-mbbim-branco.png" alt="MBBIM Consultoria &amp; Inovação" class="logo-img">
       </div>
 
-      <button class="nav-toggle" aria-label="Abrir menu">
-        ☰
-      </button>
+      <button class="nav-toggle" aria-label="Abrir menu">☰</button>
 
       <nav class="nav-links">
         <a href="index.html">Home</a>
@@ -33,7 +83,8 @@
   </header>
 
   <main>
-    <!-- Lista de projetos (cards menores) -->
+
+    <!-- Lista de projetos -->
     <section class="section" id="projetos-lista">
       <div class="container">
         <span class="section-eyebrow">Portfólio</span>
@@ -44,12 +95,12 @@
         </p>
 
         <div class="portfolio-grid" id="portfolio-grid-projetos">
-          <!-- cards via JS -->
+          <!-- Cards renderizados via JS -->
         </div>
       </div>
     </section>
 
-    <!-- Detalhe do projeto selecionado -->
+    <!-- Detalhe do projeto -->
     <section class="section section-alt" id="projeto-detalhe">
       <div class="container project-detail-grid">
         <div class="project-detail-image">
@@ -62,7 +113,14 @@
         </div>
       </div>
     </section>
+
   </main>
+
+  <!-- Popup -->
+  <div id="image-modal">
+    <div class="modal-close" id="modal-close">✕</div>
+    <img src="" alt="Imagem ampliada" id="modal-img">
+  </div>
 
   <!-- Rodapé -->
   <footer class="footer">
@@ -75,101 +133,8 @@
   </footer>
 
   <script>
-    // mesma lista de projetos da home
-    const PROJECTS = window.PROJECTS || [
-      // copiamos exatamente o mesmo array da HOME
-      // (para evitar duplicar manualmente, você pode depois extrair isso para um .js separado)
-      {
-        id: "automatizacao-planejamento-estacas",
-        title: "Automatização do Planejamento da Produção de Estacas",
-        shortDescription:
-          "Desenvolvimento de modelo e lógica de planejamento para automatizar a sequência de produção de estacas, reduzindo retrabalho e incertezas na obra.",
-        image: "img/projetos/automatizacao-planejamento-estacas.png",
-        tags: ["Planejamento", "4D", "Estacas"],
-        detail:
-          "Projeto focado em automatizar o planejamento da produção de estacas, conectando modelo BIM, parâmetros de projeto e lógica construtiva. A partir de regras configuráveis, foi possível gerar sequências de execução mais estáveis, visualizar impactos de mudanças no cronograma e reduzir o esforço manual de replanejamento. O trabalho incluiu modelagem específica, estruturação de dados e desenvolvimento de ferramentas para geração automática de cenários."
-      },
-      {
-        id: "auditoria-validacao-ifc",
-        title: "Auditoria e Validação de Modelos IFC",
-        shortDescription:
-          "Criação de rotinas e checklists para validar modelos IFC, garantindo consistência de dados, classificações e estrutura de informação.",
-        image: "img/projetos/auditoria-validacao-ifc.png",
-        tags: ["IFC", "Qualidade de dados"],
-        detail:
-          "Atuação na auditoria de modelos IFC provenientes de diferentes disciplinas e fornecedores, com foco em qualidade de dados. Foram definidos critérios de validação, checklists automatizados e relatórios para identificar problemas de estrutura, parâmetros, classificações e nomenclaturas. O resultado foi uma base de modelos mais confiável para uso em quantificação, compatibilização e tomadas de decisão."
-      },
-      {
-        id: "diagnostico-implantacao-bim-construtora",
-        title: "Diagnóstico e Implantação de BIM em Construtora",
-        shortDescription:
-          "Mapeamento de processos, definição de estratégia de implantação BIM e suporte na padronização de fluxos e entregáveis.",
-        image: "img/projetos/diagnostico-implantacao-bim-construtora.png",
-        tags: ["Implantação BIM", "Processos"],
-        detail:
-          "Trabalho de diagnóstico e implantação de BIM em construtora, envolvendo entrevistas com equipes, análise de processos atuais e definição de diretrizes de adoção. Foram documentados fluxos de informação, tipos de modelos e entregáveis, bem como padrões de nomeação, parâmetros e responsabilidades. A partir disso, foi estruturado um plano de implantação gradual, com projetos-piloto, treinamentos e acompanhamento próximo das equipes técnicas."
-      },
-      {
-        id: "software-extracao-quantitativos",
-        title: "Desenvolvimento de Software para Extração de Quantitativos",
-        shortDescription:
-          "Ferramenta própria para leitura de modelos e extração de quantitativos estruturados, conectados a orçamentos e cenários de projeto.",
-        image: "img/projetos/software-extracao-quantitativos.png",
-        tags: ["Software", "Quantitativos", "IFC"],
-        detail:
-          "Desenvolvimento de uma ferramenta dedicada à extração de quantitativos a partir de modelos BIM, com suporte a arquivos IFC e integrações com planilhas e outros sistemas. A solução permite criar regras de leitura, filtros e agrupamentos, facilitando a comparação de cenários de projeto e o reaproveitamento de modelos de diferentes origens, sempre com rastreabilidade de onde cada número veio."
-      },
-      {
-        id: "regras-verificacao-compatibilizacao",
-        title: "Criação de Regras de Verificação Automáticas para Compatibilização de Projetos",
-        shortDescription:
-          "Definição e implementação de regras para detecção automática de conflitos e inconsistências entre disciplinas.",
-        image: "img/projetos/regras-verificacao-compatibilizacao.png",
-        tags: ["Compatibilização", "Regras", "Automação"],
-        detail:
-          "Projeto voltado à criação de regras de verificação para compatibilização de projetos, incluindo checagens geométricas e de informação. As regras permitiram identificar conflitos recorrentes entre arquitetura, estrutura e instalações, além de incoerências em parâmetros e padrões de modelagem. Com isso, a equipe passou a ter uma visão mais clara dos riscos de interferência ainda na fase de projeto, reduzindo ajustes emergenciais em obra."
-      },
-      {
-        id: "modelagem-canteiro-plano-logistico",
-        title: "Modelagem de Canteiro e Plano Logístico de Início de Obra",
-        shortDescription:
-          "Modelagem 3D do canteiro e estudo de ocupação de áreas, acessos e estruturas temporárias para fases iniciais da obra.",
-        image: "img/projetos/modelagem-canteiro-plano-logistico.png",
-        tags: ["Logística de obra", "Canteiro", "Planejamento"],
-        detail:
-          "Modelagem detalhada do canteiro de obras e desenvolvimento de plano logístico para a fase inicial do empreendimento. O trabalho considerou posicionamento de estruturas temporárias, circulações, acessos de equipamentos, estoques e áreas de segurança, integrando o modelo com o cronograma da obra. As simulações ajudaram a comunicar a estratégia de uso do espaço e apoiar decisões de sequenciamento e montagem de estruturas."
-      },
-      {
-        id: "vdc-montagem-eletromecanica",
-        title: "Aplicação de VDC em Montagem Eletromecânica",
-        shortDescription:
-          "Uso de Virtual Design and Construction em equipamento de grande porte, integrando modelo, planejamento e montagem.",
-        image: "img/projetos/vdc-montagem-eletromecanica.png",
-        tags: ["VDC", "Eletromecânica", "Planejamento 4D"],
-        detail:
-          "Aplicação de Virtual Design and Construction (VDC) na montagem eletromecânica de equipamento de grande porte, com milhares de componentes. O modelo 3D foi integrado ao cronograma e aos planos de montagem, permitindo simular sequências, identificar interferências e apoiar decisões de logística de içamento e montagem. O trabalho incluiu também preparação de modelos para navegação em realidade virtual, facilitando o entendimento por parte das equipes em campo."
-      },
-      {
-        id: "simulacao-4d-multiplas-torres",
-        title: "Simulação 4D da Construção de Múltiplas Torres",
-        shortDescription:
-          "Simulações 4D para avaliar diferentes estratégias de execução de torres em paralelo, com foco em prazos e logística.",
-        image: "img/projetos/simulacao-4d-multiplas-torres.png",
-        tags: ["4D", "Múltiplas torres"],
-        detail:
-          "Desenvolvimento de simulações 4D para um conjunto de torres executadas em paralelo, com o objetivo de comparar estratégias de sequenciamento, uso de gruas, acessos e áreas de apoio. As simulações permitiram visualizar o avanço simultâneo das estruturas, identificar conflitos de uso de recursos e apoiar a escolha de um plano de ataque mais equilibrado em termos de prazo, risco e operação do canteiro."
-      },
-      {
-        id: "modelagem-3d-galpoes-industriais",
-        title: "Modelagem 3D de Galpões Industriais",
-        shortDescription:
-          "Modelagem 3D de galpões industriais com foco em coordenação, extração de quantitativos e suporte a decisões de projeto.",
-        image: "img/projetos/modelagem-3d-galpoes-industriais.png",
-        tags: ["Modelagem 3D", "Industrial"],
-        detail:
-          "Criação de modelos 3D de galpões industriais voltados a coordenação entre disciplinas, extração de quantitativos e análise de soluções de layout. O trabalho considerou estrutura, fechamentos, circulações internas, áreas de armazenagem e interfaces com sistemas de processo, permitindo testar alternativas de projeto e apoiar decisões ainda em fases iniciais do empreendimento."
-      }
-    ];
+    /* importa o mesmo array PROJECTS da home */
+    const PROJECTS = window.PROJECTS || [...]; // ← substituído automaticamente pelo browser caso esteja no global
 
     const gridProjetos = document.getElementById("portfolio-grid-projetos");
     const imgDetail = document.getElementById("project-detail-image");
@@ -177,72 +142,89 @@
     const tagsDetail = document.getElementById("project-detail-tags");
     const bodyDetail = document.getElementById("project-detail-body");
 
+    /* Render dos cards (sem imagem!) */
     function renderProjectsGrid(activeId) {
       gridProjetos.innerHTML = "";
 
-      PROJECTS.forEach((project) => {
+      PROJECTS.forEach((p) => {
         const card = document.createElement("article");
-        card.className = "portfolio-card" + (project.id === activeId ? " active" : "");
+        card.className = "portfolio-card" + (p.id === activeId ? " active" : "");
+
         card.innerHTML = `
-          <button class="portfolio-card-button" type="button" data-project-id="${project.id}">
+          <button class="portfolio-card-button" type="button" data-project-id="${p.id}">
             <div class="portfolio-body">
-              <h3>${project.title}</h3>
-              <p>${project.shortDescription}</p>
+              <h3>${p.title}</h3>
+              <p>${p.shortDescription}</p>
               <ul class="portfolio-tags">
-                ${project.tags.map((tag) => `<li>${tag}</li>`).join("")}
+                ${p.tags.map(tag => `<li>${tag}</li>`).join("")}
               </ul>
             </div>
           </button>
         `;
+
         gridProjetos.appendChild(card);
       });
 
-      // listeners
-      document.querySelectorAll(".portfolio-card-button").forEach((btn) => {
+      document.querySelectorAll(".portfolio-card-button").forEach(btn => {
         btn.addEventListener("click", () => {
-          const id = btn.getAttribute("data-project-id");
-          setActiveProject(id, true);
+          setActiveProject(btn.dataset.projectId, true);
         });
       });
     }
 
+    /* Atualiza projeto selecionado */
     function setActiveProject(id, updateUrl) {
-      const project = PROJECTS.find((p) => p.id === id) || PROJECTS[0];
+      const project = PROJECTS.find(p => p.id === id) || PROJECTS[0];
 
-      // atualiza detalhe
       imgDetail.src = project.image;
       imgDetail.alt = project.title;
       titleDetail.textContent = project.title;
-      tagsDetail.innerHTML = project.tags.map((t) => `<li>${t}</li>`).join("");
+      tagsDetail.innerHTML = project.tags.map(t => `<li>${t}</li>`).join("");
       bodyDetail.textContent = project.detail;
 
-      // atualiza grid (classe active)
       renderProjectsGrid(project.id);
 
       if (updateUrl) {
         const params = new URLSearchParams(window.location.search);
         params.set("projeto", project.id);
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        window.history.replaceState({}, "", newUrl);
+        history.replaceState({}, "", `${window.location.pathname}?${params}`);
       }
     }
 
-    // seleciona projeto inicial (por querystring)
-    const params = new URLSearchParams(window.location.search);
-    const initialId = params.get("projeto") || PROJECTS[0].id;
+    /* Projeto inicial */
+    const query = new URLSearchParams(location.search);
+    const initialId = query.get("projeto") || PROJECTS[0].id;
 
     renderProjectsGrid(initialId);
     setActiveProject(initialId, false);
 
-    // ano e menu
+    /* Atualiza ano */
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* Toggle mobile menu */
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
-    if (navToggle && navLinks) {
-      navToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("nav-open");
-      });
-    }
+    navToggle.addEventListener("click", () => navLinks.classList.toggle("nav-open"));
+
+    /* ------- Popup da imagem ------- */
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = document.getElementById("modal-close");
+
+    imgDetail.addEventListener("click", () => {
+      modalImg.src = imgDetail.src;
+      modal.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+
   </script>
+
 </body>
 </html>
