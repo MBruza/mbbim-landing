@@ -712,6 +712,21 @@ section {
     margin-top: 1.6rem;
 }
 
+/* Botão do linkedin */
+.about-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.about-linkedin::after {
+    content: "↗";
+    font-size: 0.9rem;
+}
+
 
 
 
