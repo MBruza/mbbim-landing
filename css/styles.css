@@ -268,6 +268,305 @@ h3,
     max-width: 540px;
 }
 
+/* Sobre */
+.two-column {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+    gap: 2.5rem;
+}
+
+.two-column p + p {
+    margin-top: 0.8rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.info-card {
+    border-radius: 1rem;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: radial-gradient(circle at top left, rgba(44, 134, 136, 0.25), #050b0c);
+    padding: 0.9rem 1rem;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+}
+
+.info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #b2f0f0;
+}
+
+/* Serviços */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+}
+
+.service-card {
+    border-radius: 1.1rem;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: radial-gradient(circle at top left, rgba(30, 64, 75, 0.6), #050b0c);
+    padding: 1.1rem 1.2rem;
+}
+
+.service-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    color: #d0d0d0;
+}
+
+/* Portfólio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+}
+
+.portfolio-card {
+    border-radius: 1.1rem;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: #050b0c;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-thumb {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portfolio-thumb.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, rgba(44, 134, 136, 0.5), #050b0c);
+    color: #d0d0d0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.portfolio-body {
+    padding: 1rem 1rem 1.1rem;
+}
+
+.portfolio-body h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: #ffffff;
+}
+
+.portfolio-body p {
+    font-size: 0.9rem;
+    color: #d0d0d0;
+    margin-bottom: 0.7rem;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+.portfolio-tags li {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(178, 178, 178, 0.6);
+    color: #f5f5f5;
+}
+
+/* Contato */
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.contact-highlight {
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: radial-gradient(circle at top left, rgba(44, 134, 136, 0.3), #050b0c);
+}
+
+.contact-highlight a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-highlight a:hover {
+    text-decoration: underline;
+}
+
+.contact-note {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #b2b2b2;
+}
+
+/* Formulário */
+.contact-form {
+    border-radius: 1.25rem;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: #050b0c;
+    padding: 1.3rem 1.4rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 0.9rem;
+}
+
+.field label {
+    font-size: 0.85rem;
+    color: #f5f5f5;
+}
+
+.field input,
+.field textarea {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(90, 104, 110, 0.95);
+    background: #050b0c;
+    padding: 0.55rem 0.7rem;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: #2c8688;
+    box-shadow: 0 0 0 1px rgba(44, 134, 136, 0.45);
+}
+
+.form-hint {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    color: #8c8c8c;
+}
+
+/* Rodapé */
+.footer {
+    padding: 1.5rem 0 2rem;
+    background: #050b0c;
+    border-top: 1px solid rgba(73, 85, 90, 0.9);
+}
+
+.footer-content {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #b2b2b2;
+}
+
+.footer-secondary {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .two-column {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-links {
+        position: absolute;
+        inset: 56px 1.5rem auto;
+        background: rgba(5, 11, 12, 0.98);
+        border-radius: 0.9rem;
+        border: 1px solid rgba(73, 85, 90, 0.9);
+        padding: 0.8rem 1rem;
+        display: none;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .hero {
+        padding-top: 3.2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Espaço extra para o botão na seção Sobre da home */
+#sobre .btn {
+    margin-top: 1.25rem;
+}
+
+/* Centralizar o botão "Conheça nossos serviços" dentro do grid */
+.cards-grid .btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1.4rem;
+}
+
+/* Centralizar o botão "Ver portfólio completo" dentro do grid */
+.portfolio-grid .btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1.4rem;
+}
+
+/* Ajuste da posição de rolagem para evitar cortar títulos */
+section {
+    scroll-margin-top: 80px; /* pode ajustar para 70 ou 90 dependendo da navbar */
+}
+
+/* Ajuste da logo no mobile */
+@media (max-width: 600px) {
+    .logo-area {
+        padding-left: 12px; /* ajuste fino—pode aumentar para 14 ou 16 se quiser */
+    }
+}
+
 /* --------------------------- */
 /* Página Sobre / Sobre Murilo */
 /* --------------------------- */
@@ -435,3 +734,4 @@ h3,
         max-width: 220px;
     }
 }
+
