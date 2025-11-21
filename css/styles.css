@@ -945,6 +945,61 @@ section {
     }
 }
 
+/* --------------------------- */
+/* Página Projetos – detalhe   */
+/* --------------------------- */
+
+/* Card ativo na lista de projetos */
+.portfolio-card.active {
+    border-color: rgba(44, 134, 136, 0.9);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.portfolio-card-button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* Grid do detalhe */
+.project-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.project-detail-image img {
+    width: 100%;
+    border-radius: 1.3rem;
+    border: 1px solid rgba(178, 178, 178, 0.35);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    object-fit: cover;
+}
+
+.project-detail-text h2 {
+    margin-bottom: 0.8rem;
+}
+
+.project-detail-text .portfolio-tags {
+    margin-bottom: 1.4rem;
+}
+
+.project-detail-text p {
+    line-height: 1.7;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .project-detail-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.8rem;
+    }
+}
+
 
 
 
