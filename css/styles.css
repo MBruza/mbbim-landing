@@ -735,6 +735,28 @@ section {
     }
 }
 
+.contact-cta-home {
+    text-align: center;
+}
+
+.contact-cta-home h2 {
+    margin-bottom: 0.7rem;
+}
+
+.cta-contact-info {
+    margin: 1rem 0 1.5rem;
+    color: #d0d0d0;
+}
+
+.cta-contact-info a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cta-contact-info a:hover {
+    text-decoration: underline;
+}
+
 
 
 
