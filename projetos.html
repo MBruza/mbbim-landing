@@ -8,14 +8,13 @@
         content="Projetos selecionados em BIM, planejamento 4D, quantificação, automações e implantação de processos digitais.">
   <link rel="stylesheet" href="css/styles.css" />
 
-  <!-- fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
   <style>
-    /* --- Ajustes da imagem principal --- */
+    /* Imagem destacada do projeto */
     .project-detail-image img {
       width: 100%;
       max-height: 420px;
@@ -25,7 +24,7 @@
       cursor: zoom-in;
     }
 
-    /* --- Modal/Popup da imagem --- */
+    /* Modal / popup da imagem */
     #image-modal {
       position: fixed;
       inset: 0;
@@ -62,7 +61,6 @@
 </head>
 
 <body>
-
   <!-- Navbar -->
   <header class="navbar">
     <div class="container nav-content">
@@ -83,8 +81,7 @@
   </header>
 
   <main>
-
-    <!-- Lista de projetos -->
+    <!-- Lista de projetos (como carrossel, sem imagem) -->
     <section class="section" id="projetos-lista">
       <div class="container">
         <span class="section-eyebrow">Portfólio</span>
@@ -94,13 +91,23 @@
           digitais em ambientes de projeto e obra.
         </p>
 
-        <div class="portfolio-grid" id="portfolio-grid-projetos">
-          <!-- Cards renderizados via JS -->
+        <div class="portfolio-nav-wrapper">
+          <button class="portfolio-arrow" id="projects-prev" aria-label="Projetos anteriores">
+            ‹
+          </button>
+
+          <div class="portfolio-grid" id="portfolio-grid-projetos">
+            <!-- cards via JS -->
+          </div>
+
+          <button class="portfolio-arrow" id="projects-next" aria-label="Próximos projetos">
+            ›
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Detalhe do projeto -->
+    <!-- Detalhe do projeto selecionado -->
     <section class="section section-alt" id="projeto-detalhe">
       <div class="container project-detail-grid">
         <div class="project-detail-image">
@@ -113,10 +120,9 @@
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- Popup -->
+  <!-- Popup da imagem -->
   <div id="image-modal">
     <div class="modal-close" id="modal-close">✕</div>
     <img src="" alt="Imagem ampliada" id="modal-img">
@@ -133,7 +139,7 @@
   </footer>
 
   <script>
-    /* importa o mesmo array PROJECTS da home */
+    // Mesmo array de projetos da home
     const PROJECTS = [
       {
         id: "automatizacao-planejamento-estacas",
@@ -233,76 +239,105 @@
     const tagsDetail = document.getElementById("project-detail-tags");
     const bodyDetail = document.getElementById("project-detail-body");
 
-    /* Render dos cards (sem imagem!) */
-    function renderProjectsGrid(activeId) {
+    const prevBtn = document.getElementById("projects-prev");
+    const nextBtn = document.getElementById("projects-next");
+
+    const VISIBLE_CARDS = 3;
+    let projectStartIndex = 0;      // primeiro card visível no carrossel
+    let currentProjectId = null;    // projeto atualmente selecionado no detalhe
+
+    function renderProjectsCarousel(activeId) {
       gridProjetos.innerHTML = "";
 
-      PROJECTS.forEach((p) => {
+      for (let i = 0; i < VISIBLE_CARDS; i++) {
+        const idx = (projectStartIndex + i) % PROJECTS.length;
+        const project = PROJECTS[idx];
+
         const card = document.createElement("article");
-        card.className = "portfolio-card" + (p.id === activeId ? " active" : "");
+        card.className = "portfolio-card" + (project.id === activeId ? " active" : "");
 
         card.innerHTML = `
-          <button class="portfolio-card-button" type="button" data-project-id="${p.id}">
+          <button class="portfolio-card-button" type="button" data-project-id="${project.id}">
             <div class="portfolio-body">
-              <h3>${p.title}</h3>
-              <p>${p.shortDescription}</p>
+              <h3>${project.title}</h3>
+              <p>${project.shortDescription}</p>
               <ul class="portfolio-tags">
-                ${p.tags.map(tag => `<li>${tag}</li>`).join("")}
+                ${project.tags.map(tag => `<li>${tag}</li>`).join("")}
               </ul>
             </div>
           </button>
         `;
 
         gridProjetos.appendChild(card);
-      });
+      }
 
-      document.querySelectorAll(".portfolio-card-button").forEach(btn => {
+      // listeners dos 3 cards visíveis
+      gridProjetos.querySelectorAll(".portfolio-card-button").forEach(btn => {
         btn.addEventListener("click", () => {
-          setActiveProject(btn.dataset.projectId, true);
+          const id = btn.getAttribute("data-project-id");
+          setActiveProject(id, true);
         });
       });
     }
 
-    /* Atualiza projeto selecionado */
     function setActiveProject(id, updateUrl) {
       const project = PROJECTS.find(p => p.id === id) || PROJECTS[0];
 
+      // atualiza detalhe
       imgDetail.src = project.image;
       imgDetail.alt = project.title;
       titleDetail.textContent = project.title;
       tagsDetail.innerHTML = project.tags.map(t => `<li>${t}</li>`).join("");
       bodyDetail.textContent = project.detail;
 
-      renderProjectsGrid(project.id);
+      currentProjectId = project.id;
+      renderProjectsCarousel(currentProjectId);
 
       if (updateUrl) {
         const params = new URLSearchParams(window.location.search);
         params.set("projeto", project.id);
-        history.replaceState({}, "", `${window.location.pathname}?${params}`);
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        window.history.replaceState({}, "", newUrl);
       }
     }
 
-    /* Projeto inicial */
-    const query = new URLSearchParams(location.search);
-    const initialId = query.get("projeto") || PROJECTS[0].id;
-
-    renderProjectsGrid(initialId);
+    // projeto inicial (querystring ou primeiro)
+    const params = new URLSearchParams(window.location.search);
+    const initialId = params.get("projeto") || PROJECTS[0].id;
     setActiveProject(initialId, false);
 
-    /* Atualiza ano */
+    // navegação do carrossel (anda 1 em 1)
+    if (prevBtn && nextBtn && gridProjetos) {
+      prevBtn.addEventListener("click", () => {
+        projectStartIndex = (projectStartIndex - 1 + PROJECTS.length) % PROJECTS.length;
+        renderProjectsCarousel(currentProjectId);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        projectStartIndex = (projectStartIndex + 1) % PROJECTS.length;
+        renderProjectsCarousel(currentProjectId);
+      });
+    }
+
+    // ano rodapé
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    /* Toggle mobile menu */
+    // menu mobile
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
-    navToggle.addEventListener("click", () => navLinks.classList.toggle("nav-open"));
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-open");
+      });
+    }
 
-    /* ------- Popup da imagem ------- */
+    // Popup da imagem
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.getElementById("modal-close");
 
     imgDetail.addEventListener("click", () => {
+      if (!imgDetail.src) return;
       modalImg.src = imgDetail.src;
       modal.style.display = "flex";
     });
@@ -312,9 +347,10 @@
     });
 
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) modal.style.display = "none";
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
     });
-
   </script>
 
 </body>
