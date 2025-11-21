@@ -708,6 +708,48 @@ section {
     }
 }
 
+/* -------- Página SOBRE: legibilidade -------- */
+
+/* Limita largura dos blocos de texto longos */
+#sobre-mbbim .about-company-detailed,
+#sobre-murilo .about-text {
+    max-width: 80ch;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Espaço maior entre parágrafos */
+#sobre-mbbim .about-company-detailed p + p,
+#sobre-murilo .about-text p + p {
+    margin-top: 1.4rem;
+}
+
+/* Espaço entre título/subtítulo e o texto */
+#sobre-mbbim h1 {
+    margin-bottom: 1.2rem;
+}
+
+#sobre-mbbim .section-subtitle {
+    margin-bottom: 1.6rem;
+}
+
+#sobre-murilo h2 {
+    margin-bottom: 1.2rem;
+}
+
+/* Respiro extra antes da lista, botão e logos */
+#sobre-murilo .about-bullets {
+    margin-top: 1.6rem;
+}
+
+#sobre-murilo .about-linkedin {
+    margin-top: 1.6rem;
+}
+
+#sobre-murilo .about-logos {
+    margin-top: 2rem;
+}
+
 
 
 
