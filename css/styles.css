@@ -571,13 +571,17 @@ section {
 /* Página Sobre / Sobre Murilo */
 /* --------------------------- */
 
-/* Deixa o texto da empresa mais agradável de ler em largura menor */
-.container.narrow {
-    max-width: 820px;
+/* Mesma largura para MBBIM e Murilo — alinhamento perfeito */
+#sobre-mbbim .about-company-detailed,
+#sobre-murilo .about-header,
+#sobre-murilo .about-text-long {
+    max-width: 78ch;               /* largura mais elegante */
+    margin-left: 0;                /* alinhado à esquerda */
 }
 
-/* Eyebrow da seção principal */
-.section-eyebrow {
+/* Eyebrow */
+.section-eyebrow,
+.about-eyebrow {
     display: inline-flex;
     padding: 0.18rem 0.6rem;
     border-radius: 999px;
@@ -590,51 +594,47 @@ section {
     margin-bottom: 0.6rem;
 }
 
-/* BLOCO MBBIM (texto da empresa) */
+/* ------------------ */
+/* SOBRE A MBBIM      */
+/* ------------------ */
 
-/* Limita largura e melhora leitura */
-#sobre-mbbim .about-company-detailed {
-    max-width: 80ch;
-    margin: 0 auto;
-    line-height: 1.7;
+#sobre-mbbim {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
 }
 
-.about-company-detailed p {
-    font-size: 1rem;
-    color: #d0d0d0;
-}
-
-/* Espaço maior entre parágrafos */
-#sobre-mbbim .about-company-detailed p + p {
-    margin-top: 1.4rem;
-}
-
-/* Espaço entre título/subtítulo e texto */
 #sobre-mbbim h1 {
     margin-bottom: 1.2rem;
 }
 
 #sobre-mbbim .section-subtitle {
     margin-bottom: 1.6rem;
+    color: #b2b2b2;
 }
 
-/* Espaçamento vertical da seção */
-#sobre-mbbim {
+.about-company-detailed p + p {
+    margin-top: 1.4rem;
+    line-height: 1.7;
+}
+
+/* ------------------ */
+/* SOBRE MURILO       */
+/* ------------------ */
+
+#sobre-murilo {
     padding-top: 4rem;
-    padding-bottom: 3rem;
+    padding-bottom: 4rem;
 }
 
-/* BLOCO MURILO */
-
-/* Layout da grid: foto + texto */
+/* Foto + formação ao lado — refeito */
 .about-grid {
     display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr);
+    grid-template-columns: 340px auto;  /* foto maior */
     gap: 2.5rem;
-    align-items: flex-start;
+    align-items: start;
 }
 
-/* Foto */
+/* Foto maior */
 .about-photo {
     display: flex;
     justify-content: center;
@@ -642,46 +642,34 @@ section {
 
 .about-avatar {
     width: 100%;
-    max-width: 260px;
-    aspect-ratio: 1 / 1;   /* deixa quadrada */
+    max-width: 340px;               /* AQUI AUMENTA A FOTO */
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 1.25rem;
+    border-radius: 1.35rem;
     border: 1px solid rgba(178, 178, 178, 0.35);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
 }
 
-/* Texto do Murilo: largura e leitura */
-#sobre-murilo .about-text {
-    max-width: 80ch;
-    margin: 0 auto;
+/* Cabeçalho + formação */
+.about-header {
     line-height: 1.7;
 }
 
-/* Espaço entre parágrafos */
-#sobre-murilo .about-text p + p {
-    margin-top: 1.4rem;
+.about-header p {
+    margin-top: 1.4rem;      /* MESMO espaçamento dos outros blocos */
 }
 
-/* Eyebrow "Sobre o consultor" */
-.about-eyebrow {
-    display: inline-flex;
-    padding: 0.18rem 0.6rem;
-    border-radius: 999px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #b2f0f0;
-    border: 1px solid rgba(44, 134, 136, 0.7);
-    background: rgba(44, 134, 136, 0.15);
-    margin-bottom: 0.8rem;
+/* Texto longo abaixo */
+.about-text-long {
+    margin-top: 2rem;
+    line-height: 1.7;
 }
 
-/* Espaço entre título e texto */
-#sobre-murilo h2 {
-    margin-bottom: 1.2rem;
+.about-text-long p + p {
+    margin-top: 1.4rem;      /* Agora igual ao texto de cima */
 }
 
-/* Lista de bullets */
+/* Bullets */
 .about-bullets {
     list-style: none;
     margin-top: 1.6rem;
@@ -713,25 +701,31 @@ section {
     font-size: 0.9rem;
 }
 
-/* Espaçamento vertical da seção Murilo */
-#sobre-murilo {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
+/* ------------------ */
+/* MOBILE             */
+/* ------------------ */
 
-/* Responsivo: empilha foto e texto no mobile */
 @media (max-width: 900px) {
+
     .about-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: 1fr;
         gap: 1.8rem;
     }
 
     .about-photo {
-        order: -1;          /* foto sobe */
+        order: -1;
     }
 
     .about-avatar {
-        max-width: 220px;
+        max-width: 260px; 
+        margin: 0 auto;
+    }
+
+    #sobre-mbbim .about-company-detailed,
+    #sobre-murilo .about-header,
+    #sobre-murilo .about-text-long {
+        max-width: 100%;
     }
 }
+
 
