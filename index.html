@@ -188,7 +188,7 @@
     </section>
 
     <!-- Contato -->
-    <section class="section section-alt contact-cta-home">
+    <section class="section section-alt contact-cta-home" id="contato">
       <div class="container contact-cta-wrapper">
           <h2>Fale com a MBBIM</h2>
           <p class="section-subtitle">
@@ -336,6 +336,9 @@
     
           card.innerHTML = `
             <a href="projetos.html?projeto=${project.id}" class="portfolio-card-link">
+              <div class="portfolio-image-wrapper">
+                <img src="${project.image}" alt="${project.title}" class="portfolio-image">
+              </div>
               <div class="portfolio-body">
                 <h3>${project.title}</h3>
                 <p>${project.shortDescription}</p>
@@ -354,14 +357,16 @@
     
       if (prevBtn && nextBtn && gridHome) {
         prevBtn.addEventListener("click", () => {
+          // anda 1 item para trás
           portfolioStartIndex =
-            (portfolioStartIndex - VISIBLE_CARDS + PROJECTS.length) % PROJECTS.length;
+            (portfolioStartIndex - 1 + PROJECTS.length) % PROJECTS.length;
           renderHomePortfolio();
         });
     
         nextBtn.addEventListener("click", () => {
+          // anda 1 item para frente
           portfolioStartIndex =
-            (portfolioStartIndex + VISIBLE_CARDS) % PROJECTS.length;
+            (portfolioStartIndex + 1) % PROJECTS.length;
           renderHomePortfolio();
         });
     
@@ -387,14 +392,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
