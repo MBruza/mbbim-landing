@@ -9,8 +9,8 @@
 
 body {
     font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #0f172a;
-    background-color: #0b1220;
+    color: #f5f5f5;
+    background-color: #050b0c;
     line-height: 1.6;
 }
 
@@ -22,14 +22,24 @@ body {
     margin: 0 auto;
 }
 
+/* Tipografia de marca */
+h1,
+h2,
+h3,
+.hero-tag,
+.btn,
+.logo-text-brand {
+    font-family: "Sora", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 /* Navbar */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 50;
     backdrop-filter: blur(16px);
-    background: rgba(15, 23, 42, 0.85);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    background: rgba(5, 11, 12, 0.92);
+    border-bottom: 1px solid rgba(178, 178, 178, 0.2);
 }
 
 .nav-content {
@@ -41,22 +51,20 @@ body {
 
 .logo-area {
     display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
+    align-items: center;
 }
 
-.logo-mark {
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 0.15rem 0.5rem;
-    border-radius: 999px;
-    background: linear-gradient(135deg, #22d3ee, #6366f1);
-    color: #020617;
+.logo-img {
+    height: 40px;
+    width: auto;
 }
 
-.logo-text {
-    font-size: 0.9rem;
-    color: #e5e7eb;
+/* se um dia quiser texto junto do logo, dá pra usar essa classe */
+.logo-text-brand {
+    margin-left: 0.6rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #ffffff;
 }
 
 .nav-links {
@@ -66,7 +74,7 @@ body {
 }
 
 .nav-links a {
-    color: #cbd5f5;
+    color: #b2b2b2;
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 400;
@@ -82,15 +90,15 @@ body {
     background: none;
     border: none;
     font-size: 1.6rem;
-    color: #e5e7eb;
+    color: #f5f5f5;
     cursor: pointer;
 }
 
 /* Hero */
 .hero {
     padding: 4.5rem 0 3rem;
-    background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
-    color: #e5e7eb;
+    background: radial-gradient(circle at top, #113538 0, #050b0c 55%);
+    color: #f5f5f5;
 }
 
 .hero-grid {
@@ -109,25 +117,25 @@ body {
     font-size: 0.8rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: #a5b4fc;
-    background: rgba(30, 64, 175, 0.3);
-    border: 1px solid rgba(129, 140, 248, 0.4);
+    color: #d3f4f4;
+    background: rgba(44, 134, 136, 0.2);
+    border: 1px solid rgba(44, 134, 136, 0.7);
 }
 
 .hero h1 {
     margin-top: 1.1rem;
     font-size: clamp(2rem, 2.8vw + 1.2rem, 2.8rem);
     line-height: 1.2;
-    color: #f9fafb;
+    color: #ffffff;
 }
 
 .hero h1 .highlight {
-    color: #38bdf8;
+    color: #2c8688;
 }
 
 .hero p {
     margin-top: 1rem;
-    color: #cbd5f5;
+    color: #d0d0d0;
     font-size: 1rem;
 }
 
@@ -165,25 +173,25 @@ body {
 }
 
 .btn.primary {
-    background: linear-gradient(135deg, #22d3ee, #6366f1);
-    color: #020617;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+    background: linear-gradient(135deg, #2c8688, #3fa3a5);
+    color: #041012;
+    box-shadow: 0 10px 25px rgba(44, 134, 136, 0.45);
 }
 
 .btn.primary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 16px 35px rgba(37, 99, 235, 0.45);
+    box-shadow: 0 16px 35px rgba(44, 134, 136, 0.6);
 }
 
 .btn.ghost {
     background: transparent;
-    color: #e5e7eb;
-    border-color: rgba(148, 163, 184, 0.5);
+    color: #f5f5f5;
+    border-color: rgba(178, 178, 178, 0.55);
 }
 
 .btn.ghost:hover {
-    background: rgba(15, 23, 42, 0.9);
-    border-color: #e5e7eb;
+    background: rgba(5, 11, 12, 0.95);
+    border-color: #ffffff;
 }
 
 .btn.full {
@@ -192,11 +200,11 @@ body {
 
 /* Hero card */
 .hero-card {
-    background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.15), #020617);
+    background: radial-gradient(circle at top left, rgba(44, 134, 136, 0.25), #050b0c);
     border-radius: 1.25rem;
-    border: 1px solid rgba(148, 163, 184, 0.5);
+    border: 1px solid rgba(178, 178, 178, 0.45);
     padding: 1.3rem 1.35rem;
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.8);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
 }
 
 .hero-card-header {
@@ -213,9 +221,9 @@ body {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    background: rgba(15, 23, 42, 0.9);
-    color: #e5e7eb;
-    border: 1px solid rgba(148, 163, 184, 0.8);
+    background: rgba(5, 11, 12, 0.9);
+    color: #f5f5f5;
+    border: 1px solid rgba(178, 178, 178, 0.8);
 }
 
 .hero-card-title {
@@ -229,34 +237,34 @@ body {
     display: grid;
     gap: 0.6rem;
     font-size: 0.9rem;
-    color: #cbd5f5;
+    color: #d0d0d0;
 }
 
 .hero-list li strong {
-    color: #f9fafb;
+    color: #ffffff;
 }
 
 /* Seções genéricas */
 .section {
     padding: 3.5rem 0;
-    background: #020617;
-    color: #e5e7eb;
+    background: #050b0c;
+    color: #f5f5f5;
 }
 
 .section-alt {
-    background: #020617;
-    border-top: 1px solid rgba(31, 41, 55, 0.9);
+    background: #050b0c;
+    border-top: 1px solid rgba(178, 178, 178, 0.15);
 }
 
 .section h2 {
     font-size: 1.6rem;
     margin-bottom: 0.7rem;
-    color: #f9fafb;
+    color: #ffffff;
 }
 
 .section-subtitle {
     margin-bottom: 2rem;
-    color: #9ca3af;
+    color: #b2b2b2;
     max-width: 540px;
 }
 
@@ -279,8 +287,8 @@ body {
 
 .info-card {
     border-radius: 1rem;
-    border: 1px solid rgba(55, 65, 81, 0.9);
-    background: radial-gradient(circle at top left, rgba(15, 118, 110, 0.18), #020617);
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: radial-gradient(circle at top left, rgba(44, 134, 136, 0.25), #050b0c);
     padding: 0.9rem 1rem;
     font-size: 0.9rem;
     color: #e5e7eb;
@@ -290,7 +298,7 @@ body {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #a5f3fc;
+    color: #b2f0f0;
 }
 
 /* Serviços */
@@ -302,20 +310,20 @@ body {
 
 .service-card {
     border-radius: 1.1rem;
-    border: 1px solid rgba(55, 65, 81, 0.9);
-    background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.2), #020617);
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: radial-gradient(circle at top left, rgba(30, 64, 75, 0.6), #050b0c);
     padding: 1.1rem 1.2rem;
 }
 
 .service-card h3 {
     font-size: 1.05rem;
     margin-bottom: 0.5rem;
-    color: #e5e7eb;
+    color: #ffffff;
 }
 
 .service-card p {
     font-size: 0.9rem;
-    color: #cbd5f5;
+    color: #d0d0d0;
 }
 
 /* Portfólio */
@@ -327,8 +335,8 @@ body {
 
 .portfolio-card {
     border-radius: 1.1rem;
-    border: 1px solid rgba(55, 65, 81, 0.9);
-    background: #020617;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: #050b0c;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -345,8 +353,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at top, rgba(30, 64, 175, 0.45), #020617);
-    color: #cbd5f5;
+    background: radial-gradient(circle at top, rgba(44, 134, 136, 0.5), #050b0c);
+    color: #d0d0d0;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -359,12 +367,12 @@ body {
 .portfolio-body h3 {
     font-size: 1rem;
     margin-bottom: 0.4rem;
-    color: #f9fafb;
+    color: #ffffff;
 }
 
 .portfolio-body p {
     font-size: 0.9rem;
-    color: #cbd5f5;
+    color: #d0d0d0;
     margin-bottom: 0.7rem;
 }
 
@@ -379,8 +387,8 @@ body {
     font-size: 0.75rem;
     padding: 0.2rem 0.55rem;
     border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    color: #e5e7eb;
+    border: 1px solid rgba(178, 178, 178, 0.6);
+    color: #f5f5f5;
 }
 
 /* Contato */
@@ -395,12 +403,12 @@ body {
     margin-top: 1rem;
     padding: 0.85rem 1rem;
     border-radius: 1rem;
-    border: 1px solid rgba(55, 65, 81, 0.9);
-    background: radial-gradient(circle at top left, rgba(6, 148, 162, 0.35), #020617);
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: radial-gradient(circle at top left, rgba(44, 134, 136, 0.3), #050b0c);
 }
 
 .contact-highlight a {
-    color: #e5e7eb;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -411,14 +419,14 @@ body {
 .contact-note {
     margin-top: 0.8rem;
     font-size: 0.9rem;
-    color: #9ca3af;
+    color: #b2b2b2;
 }
 
 /* Formulário */
 .contact-form {
     border-radius: 1.25rem;
-    border: 1px solid rgba(55, 65, 81, 0.9);
-    background: #020617;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: #050b0c;
     padding: 1.3rem 1.4rem;
 }
 
@@ -431,43 +439,43 @@ body {
 
 .field label {
     font-size: 0.85rem;
-    color: #e5e7eb;
+    color: #f5f5f5;
 }
 
 .field input,
 .field textarea {
     border-radius: 0.75rem;
-    border: 1px solid rgba(75, 85, 99, 0.95);
-    background: #020617;
+    border: 1px solid rgba(90, 104, 110, 0.95);
+    background: #050b0c;
     padding: 0.55rem 0.7rem;
-    color: #e5e7eb;
+    color: #f5f5f5;
     font-size: 0.9rem;
     outline: none;
 }
 
 .field input:focus,
 .field textarea:focus {
-    border-color: #38bdf8;
-    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    border-color: #2c8688;
+    box-shadow: 0 0 0 1px rgba(44, 134, 136, 0.45);
 }
 
 .form-hint {
     margin-top: 0.6rem;
     font-size: 0.8rem;
-    color: #6b7280;
+    color: #8c8c8c;
 }
 
 /* Rodapé */
 .footer {
     padding: 1.5rem 0 2rem;
-    background: #020617;
-    border-top: 1px solid rgba(31, 41, 55, 0.9);
+    background: #050b0c;
+    border-top: 1px solid rgba(73, 85, 90, 0.9);
 }
 
 .footer-content {
     text-align: center;
     font-size: 0.85rem;
-    color: #9ca3af;
+    color: #b2b2b2;
 }
 
 .footer-secondary {
@@ -502,9 +510,9 @@ body {
     .nav-links {
         position: absolute;
         inset: 56px 1.5rem auto;
-        background: rgba(15, 23, 42, 0.98);
+        background: rgba(5, 11, 12, 0.98);
         border-radius: 0.9rem;
-        border: 1px solid rgba(55, 65, 81, 0.9);
+        border: 1px solid rgba(73, 85, 90, 0.9);
         padding: 0.8rem 1rem;
         display: none;
         flex-direction: column;
