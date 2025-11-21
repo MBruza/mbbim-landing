@@ -735,17 +735,44 @@ section {
     }
 }
 
+/* --------------------------- */
+/*     HOME – CTA de Contato   */
+/* --------------------------- */
+
 .contact-cta-home {
     text-align: center;
+    padding: 4rem 0 4rem; /* respiro vertical */
+}
+
+.contact-cta-wrapper {
+    max-width: 700px;
+    margin: 0 auto; /* centraliza horizontalmente */
 }
 
 .contact-cta-home h2 {
-    margin-bottom: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.contact-cta-home .section-subtitle {
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-contact-info {
-    margin: 1rem 0 1.5rem;
-    color: #d0d0d0;
+    margin: 1rem 0 2rem;
+    color: #e0e0e0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.cta-contact-info p {
+    margin: 0.3rem 0;
+}
+
+.cta-contact-info strong {
+    color: #ffffff;
 }
 
 .cta-contact-info a {
@@ -756,6 +783,14 @@ section {
 .cta-contact-info a:hover {
     text-decoration: underline;
 }
+
+.contact-cta-home .btn {
+    margin-top: 0.5rem;
+    display: inline-flex;
+    justify-content: center;
+}
+
+
 
 
 
