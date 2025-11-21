@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Contato | MBBim Consultoria &amp; Inovação</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato | MBBIM Consultoria & Inovação</title>
+  <meta name="description" content="Entre em contato com a MBBim Consultoria & Inovação para falar sobre projetos, consultorias BIM, planejamento 4D e automações.">
+  <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- navbar igual -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="container nav-content">
       <div class="logo-area">
-        <img src="img/logo-mbbim-branco.png" alt="MBBim Consultoria &amp; Inovação" class="logo-img">
+        <img src="img/logo-mbbim-branco.png" alt="MBBIM Consultoria &amp; Inovação" class="logo-img">
       </div>
+
       <button class="nav-toggle" aria-label="Abrir menu">
         ☰
       </button>
+
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="sobre.html">Sobre</a>
@@ -31,17 +33,68 @@
   </header>
 
   <main>
-    <section class="section">
-      <div class="container">
-        <h1>Contato</h1>
-        <p class="section-subtitle">
-          Preencha o formulário ou utilize um dos canais abaixo para falar com a MBBim.
-        </p>
+    <section class="section" id="contato">
+      <div class="container contact-grid">
+        <div>
+          <span class="section-eyebrow">Contato</span>
+          <h1>Vamos conversar sobre o seu projeto?</h1>
+          <p class="section-subtitle">
+            Envie uma mensagem com um breve contexto do projeto, prazos e expectativas. 
+            Retornaremos com uma proposta de abordagem.
+          </p>
 
-        <!-- aqui você pode reaproveitar o formulário de contato que já tem na home -->
+          <div class="contact-highlight">
+            <p><strong>E-mail:</strong> <a href="mailto:contato@mbbim.com.br">contato@mbbim.com.br</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5500000000000" target="_blank" rel="noopener">+55 (00) 00000-0000</a></p>
+          </div>
+
+          <p class="contact-note">
+            Se preferir, podemos marcar uma reunião online para entender melhor a demanda,
+            alinhar expectativas e definir próximos passos.
+          </p>
+        </div>
+
+        <form class="contact-form" action="https://formspree.io/f/seu-endpoint" method="POST">
+          <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required />
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa (opcional)</label>
+            <input type="text" id="empresa" name="empresa" />
+          </div>
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn primary full">Enviar mensagem</button>
+        </form>
       </div>
     </section>
   </main>
 
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> MBBIM Consultoria &amp; Inovação. Todos os direitos reservados.</p>
+      <p class="footer-secondary">
+        Focado em BIM, dados e processos para projetos mais eficientes.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("nav-open");
+    });
+  </script>
 </body>
 </html>
