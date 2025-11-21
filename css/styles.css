@@ -819,10 +819,6 @@ section {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
 }
 
-.service-detail-grid.single-column {
-    grid-template-columns: minmax(0, 1fr);
-}
-
 /* Texto detalhado */
 .service-detail-text {
     line-height: 1.7;
@@ -870,6 +866,7 @@ section {
         max-width: 100%;
     }
 }
+
 
 
 
