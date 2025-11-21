@@ -563,7 +563,14 @@ section {
 /* Ajuste da logo no mobile */
 @media (max-width: 600px) {
     .logo-area {
-        padding-left: 12px; /* ajuste fino—pode aumentar para 14 ou 16 se quiser */
+        padding-left: 6px; /* ajuste fino—pode aumentar para 14 ou 16 se quiser */
+    }
+}
+
+/* Ajuste fino: alinhar logo com coluna de texto principal no desktop */
+@media (min-width: 901px) {
+    .logo-area {
+        margin-left: 4px; /* se ainda parecer desalinhado, pode testar 4px ou 6px */
     }
 }
 
@@ -727,5 +734,6 @@ section {
         max-width: 100%;
     }
 }
+
 
 
