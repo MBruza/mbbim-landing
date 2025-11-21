@@ -1000,6 +1000,40 @@ section {
     }
 }
 
+/* Card do portfólio */
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #050b10;
+  border: 1px solid #1b2730;
+}
+
+/* Área da imagem */
+.portfolio-image-wrapper {
+  width: 100%;
+  height: 220px;          /* altura fixa do preview */
+  overflow: hidden;
+  background: #0f1a20;    /* cor de fundo enquanto carrega */
+}
+
+/* Imagem em si */
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;      /* preenche o espaço sem distorcer */
+  object-position: center;
+}
+
+/* Opcional: um pouco menor no mobile */
+@media (max-width: 768px) {
+  .portfolio-image-wrapper {
+    height: 180px;
+  }
+}
+
 
 
 
