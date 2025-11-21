@@ -790,6 +790,73 @@ section {
     justify-content: center;
 }
 
+/* --------------------------- */
+/* Página Serviços             */
+/* --------------------------- */
+
+/* Ajuste na visão geral dos cards (aproveita o grid existente) */
+.services-overview {
+    margin-top: 2.2rem;
+}
+
+/* Blocos detalhados */
+.service-detail {
+    border-top: 1px solid rgba(73, 85, 90, 0.7);
+}
+
+.service-detail:first-of-type {
+    border-top: none;
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.service-detail-grid-reverse {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+}
+
+/* Texto detalhado */
+.service-detail-text {
+    line-height: 1.7;
+    max-width: 78ch;
+}
+
+.service-detail-text p + p {
+    margin-top: 1.2rem;
+}
+
+/* Imagens de serviço */
+.service-detail-image {
+    display: flex;
+    justify-content: center;
+}
+
+.service-detail-image img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(178, 178, 178, 0.35);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    object-fit: cover;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .service-detail-grid,
+    .service-detail-grid-reverse {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.8rem;
+    }
+
+    .service-detail-image img {
+        max-width: 100%;
+    }
+}
+
 
 
 
