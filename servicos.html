@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Serviços | MBBim Consultoria &amp; Inovação</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços | MBBIM Consultoria & Inovação</title>
+  <meta name="description" content="Conheça os serviços da MBBim Consultoria & Inovação em BIM, coordenação, quantificação, planejamento 4D e automações.">
+  <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- navbar igual -->
+  <!-- Navbar -->
   <header class="navbar">
     <div class="container nav-content">
       <div class="logo-area">
-        <img src="img/logo-mbbim-branco.png" alt="MBBim Consultoria &amp; Inovação" class="logo-img">
+        <img src="img/logo-mbbim-branco.png" alt="MBBIM Consultoria &amp; Inovação" class="logo-img">
       </div>
+
       <button class="nav-toggle" aria-label="Abrir menu">
         ☰
       </button>
+
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="sobre.html">Sobre</a>
@@ -31,18 +33,194 @@
   </header>
 
   <main>
-    <section class="section">
+    <!-- VISÃO GERAL DOS SERVIÇOS (CARDS) -->
+    <section class="section" id="visao-geral-servicos">
       <div class="container">
-        <h1>Serviços</h1>
+        <span class="section-eyebrow">Serviços</span>
+        <h1>Como a MBBIM pode apoiar sua equipe</h1>
         <p class="section-subtitle">
-          Aqui vamos detalhar cada serviço da MBBim: implantação de BIM, coordenação, simulação 4D, automações,
-          VDC e muito mais.
+          Atuamos com BIM, dados e processos para estruturar modelos, extrair informação confiável
+          e apoiar decisões em diferentes fases do empreendimento – do estudo de viabilidade à obra.
         </p>
 
-        <!-- depois entra o conteúdo real com base no PDF de serviços -->
+        <div class="cards-grid services-overview">
+          <article class="service-card">
+            <h3>Modelagem e Coordenação BIM</h3>
+            <p>
+              Organização, revisão e coordenação de modelos multidisciplinares (arquitetura, estrutura,
+              instalações), com foco em clareza, consistência e redução de conflitos antes da obra.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Quantificação e Análise de Dados</h3>
+            <p>
+              Extração de quantitativos, indicadores e relatórios a partir dos modelos, integração com IFC
+              e criação de análises que apoiam custo, planejamento e estudos de cenários.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Planejamento 4D e Apoio à Execução</h3>
+            <p>
+              Integração entre modelo, cronograma e logística de obra, com simulações 4D, validação de
+              sequências construtivas e apoio à tomada de decisão em campo.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <h3>Automações e Ferramentas BIM</h3>
+            <p>
+              Desenvolvimento de rotinas, scripts, dashboards e ferramentas sob medida para acelerar tarefas
+              repetitivas, organizar dados e aumentar a qualidade das entregas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALHE 1 - MODELAGEM E COORDENAÇÃO -->
+    <section class="section section-alt service-detail" id="modelagem-coordenacao">
+      <div class="container service-detail-grid">
+        <div class="service-detail-text">
+          <span class="section-eyebrow">Modelagem e Coordenação</span>
+          <h2>Modelagem, coordenação e validação de modelos BIM</h2>
+          <p>
+            Apoiamos escritórios, construtoras e incorporadoras na organização e revisão de modelos BIM,
+            garantindo que informações, níveis de detalhamento e classificações estejam alinhados aos objetivos
+            do projeto e às necessidades de obra.
+          </p>
+          <p>
+            Isso inclui conferência de modelos recebidos, ajustes de estrutura de arquivos, preparação de
+            entregas em IFC, definição de parâmetros e verificação de interferências entre disciplinas.
+            O foco é reduzir surpresas em obra, melhorar a comunicação entre equipes e dar segurança para as
+            decisões de projeto.
+          </p>
+          <p>
+            Quando necessário, atuamos também na modelagem direta de disciplinas específicas, sempre com
+            padronização alinhada à estratégia da empresa ou do empreendimento.
+          </p>
+        </div>
+
+        <div class="service-detail-image">
+          <!-- Substitua por uma imagem real retirada do PDF -->
+          <img src="img/servicos-modelagem-coordenacao.png"
+               alt="Exemplo de coordenação e organização de modelos BIM">
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALHE 2 - QUANTIFICAÇÃO E DADOS -->
+    <section class="section service-detail" id="quantificacao-dados">
+      <div class="container service-detail-grid service-detail-grid-reverse">
+        <div class="service-detail-text">
+          <span class="section-eyebrow">Quantificação e Dados</span>
+          <h2>Quantitativos, IFC e dashboards para decisão</h2>
+          <p>
+            Transformamos modelos em números, tabelas e indicadores que fazem sentido para orçamento,
+            planejamento e tomada de decisão. Trabalhamos com extração de quantitativos a partir de BIM,
+            padronização de parâmetros e leitura direta de arquivos IFC.
+          </p>
+          <p>
+            A partir desses dados, estruturamos planilhas, relatórios e dashboards que ajudam a comparar
+            cenários de projeto, acompanhar evolução de escopo e dar transparência para equipes técnicas
+            e gestão.
+          </p>
+          <p>
+            Quando necessário, desenvolvemos rotinas específicas para leitura e tratamento de IFC,
+            tornando possível reaproveitar modelos de diferentes origens dentro de um mesmo fluxo de análise.
+          </p>
+        </div>
+
+        <div class="service-detail-image">
+          <!-- Substitua pela imagem correspondente do PDF (gráfico/dash ou fluxo) -->
+          <img src="img/servicos-quantificacao-dados.png"
+               alt="Exemplo de análise de dados e quantitativos a partir de modelos BIM">
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALHE 3 - PLANEJAMENTO 4D / VDC -->
+    <section class="section section-alt service-detail" id="planejamento-4d">
+      <div class="container service-detail-grid">
+        <div class="service-detail-text">
+          <span class="section-eyebrow">Planejamento 4D e VDC</span>
+          <h2>Planejamento 4D, logística de obra e VDC</h2>
+          <p>
+            Integramos modelo, cronograma e logística de obra para apoiar decisões de sequência construtiva,
+            ocupação de áreas, posicionamento de estruturas temporárias e uso de equipamentos. O objetivo é
+            antecipar gargalos, testar alternativas e comunicar melhor o plano de ataque para toda a equipe.
+          </p>
+          <p>
+            A abordagem combina conceitos de Virtual Design and Construction (VDC) e metodologias como AWP
+            e Lean, permitindo que o modelo BIM seja usado como ferramenta de planejamento, e não apenas de
+            documentação.
+          </p>
+          <p>
+            Essa visão integrada é especialmente útil para obras com restrições de espaço, interferência entre
+            frentes de trabalho ou marcos de entrega críticos.
+          </p>
+        </div>
+
+        <div class="service-detail-image">
+          <!-- Aqui é um ótimo lugar para a imagem do tripé VDC (BIM + AWP + LPS) vinda do PDF -->
+          <img src="img/tripe-vdc.png"
+               alt="Tripé VDC com integração entre BIM, AWP e LPS">
+        </div>
+      </div>
+    </section>
+
+    <!-- DETALHE 4 - AUTOMAÇÕES -->
+    <section class="section service-detail" id="automacoes-bim">
+      <div class="container service-detail-grid service-detail-grid-reverse">
+        <div class="service-detail-text">
+          <span class="section-eyebrow">Automações e Ferramentas</span>
+          <h2>Automações, scripts e ferramentas sob medida</h2>
+          <p>
+            Quando o volume de modelos e projetos cresce, tarefas repetitivas passam a consumir uma parcela
+            importante do tempo das equipes. Nessa frente, desenvolvemos rotinas, scripts e ferramentas para
+            automatizar verificações, extrações e integrações.
+          </p>
+          <p>
+            Isso inclui desde checklists automatizados em modelos IFC, passando por geração de relatórios
+            padronizados, até dashboards conectados a bancos de dados e integrações com outras plataformas.
+          </p>
+          <p>
+            O foco é liberar o time para análises de maior valor agregado, mantendo consistência e rastreabilidade
+            nas informações utilizadas para tomar decisões.
+          </p>
+        </div>
+
+        <div class="service-detail-image">
+          <!-- Substitua por uma imagem vinda do PDF ou um diagrama simples de automação -->
+          <img src="img/servicos-automacoes-bim.png"
+               alt="Fluxo de automações e ferramentas BIM">
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© <span id="year"></span> MBBIM Consultoria &amp; Inovação. Todos os direitos reservados.</p>
+      <p class="footer-secondary">
+        Focado em BIM, dados e processos para projetos mais eficientes.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Ano automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("nav-open");
+    });
+  </script>
 </body>
 </html>
