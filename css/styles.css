@@ -535,3 +535,23 @@ h3,
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Espaço extra para o botão na seção Sobre da home */
+#sobre .btn {
+    margin-top: 1.25rem;
+}
+
+/* Centralizar o botão "Conheça nossos serviços" dentro do grid */
+.cards-grid .btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1.4rem;
+}
+
+/* Centralizar o botão "Ver portfólio completo" dentro do grid */
+.portfolio-grid .btn {
+    grid-column: 1 / -1;
+    justify-self: center;
+    margin-top: 1.4rem;
+}
+
