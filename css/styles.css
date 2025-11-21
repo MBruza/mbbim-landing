@@ -658,40 +658,6 @@ section {
     margin-top: 1.2rem;
 }
 
-/* Logos de empresas da carreira */
-.about-logos {
-    margin-top: 1.6rem;
-}
-
-.about-logos-label {
-    display: block;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #b2b2b2;
-    margin-bottom: 0.4rem;
-}
-
-.about-logos-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem 1.4rem;
-    align-items: center;
-}
-
-.about-logos-row img {
-    height: 30px;
-    width: auto;
-    opacity: 0.85;
-    filter: brightness(1.05);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.about-logos-row img:hover {
-    opacity: 1;
-    transform: translateY(-1px);
-}
-
 /* Responsivo para a página Sobre */
 @media (max-width: 900px) {
     .about-grid {
@@ -746,9 +712,6 @@ section {
     margin-top: 1.6rem;
 }
 
-#sobre-murilo .about-logos {
-    margin-top: 2rem;
-}
 
 
 
