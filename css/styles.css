@@ -570,7 +570,7 @@ section {
 /* Ajuste fino: alinhar logo com coluna de texto principal no desktop */
 @media (min-width: 901px) {
     .logo-area {
-        margin-left: 4px; /* se ainda parecer desalinhado, pode testar 4px ou 6px */
+        margin-left: 12px; /* se ainda parecer desalinhado, pode testar 4px ou 6px */
     }
 }
 
@@ -734,6 +734,7 @@ section {
         max-width: 100%;
     }
 }
+
 
 
 
