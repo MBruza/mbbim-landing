@@ -557,7 +557,7 @@ h3,
 
 /* Ajuste da posição de rolagem para evitar cortar títulos */
 section {
-    scroll-margin-top: 120px; /* pode ajustar para 70 ou 90 dependendo da navbar */
+    scroll-margin-top: 100px; /* pode ajustar para 70 ou 90 dependendo da navbar */
 }
 
 /* Ajuste da logo no mobile */
@@ -566,6 +566,7 @@ section {
         padding-left: 12px; /* ajuste fino—pode aumentar para 14 ou 16 se quiser */
     }
 }
+
 
 
 
