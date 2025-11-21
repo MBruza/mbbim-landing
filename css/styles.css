@@ -853,6 +853,11 @@ section {
     object-fit: cover;
 }
 
+/* Força os detalhes dos serviços a ocuparem 1 coluna quando não houver imagem */
+.service-detail.no-image .service-detail-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
 /* Responsivo */
 @media (max-width: 900px) {
     .service-detail-grid,
@@ -865,6 +870,7 @@ section {
         max-width: 100%;
     }
 }
+
 
 
 
