@@ -867,6 +867,84 @@ section {
     }
 }
 
+/* --------------------------- */
+/* Portfólio – navegação HOME  */
+/* --------------------------- */
+
+.portfolio-nav-wrapper {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.portfolio-arrow {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: radial-gradient(circle at top left, rgba(44, 134, 136, 0.25), #050b0c);
+    color: #f5f5f5;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.portfolio-arrow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+}
+
+.portfolio-arrow:disabled {
+    opacity: 0.4;
+    cursor: default;
+    box-shadow: none;
+}
+
+#portfolio-grid-home {
+    /* já herda de .portfolio-grid, mas garantimos 3 colunas aqui */
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.portfolio-cta {
+    margin-top: 2.2rem;
+    text-align: center;
+}
+
+/* link interno do card para não quebrar o estilo atual */
+.portfolio-card-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* responsivo */
+@media (max-width: 900px) {
+    .portfolio-nav-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.2rem;
+    }
+
+    .portfolio-arrow {
+        display: none;
+    }
+
+    #portfolio-grid-home {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    #portfolio-grid-home {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 
 
 
