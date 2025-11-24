@@ -54,24 +54,42 @@
           </p>
         </div>
 
-        <form class="contact-form" action="https://formspree.io/f/seu-endpoint" method="POST">
-          <div class="field">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" required />
-          </div>
-          <div class="field">
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="field">
-            <label for="empresa">Empresa (opcional)</label>
-            <input type="text" id="empresa" name="empresa" />
-          </div>
-          <div class="field">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn primary full">Enviar mensagem</button>
+        <form 
+          action="https://formspree.io/f/mrbvqjqo" 
+          method="POST" 
+          class="contact-form"
+        >
+            <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required />
+            </div>
+        
+            <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+        
+            <div class="field">
+                <label for="empresa">Empresa (opcional)</label>
+                <input type="text" id="empresa" name="empresa" />
+            </div>
+        
+            <div class="field">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+            </div>
+        
+            <!-- direciona para a página de sucesso após enviar -->
+            <input type="hidden" name="_redirect" value="https://www.mbbim.com.br/contato-sucesso.html">
+        
+            <!-- assunto do e-mail recebido -->
+            <input type="hidden" name="_subject" value="Nova mensagem pelo site MBBIM">
+        
+            <button type="submit" class="btn primary full">Enviar mensagem</button>
+        
+            <p class="form-hint">
+                Sua mensagem será enviada diretamente ao e-mail da MBBIM via Formspree.
+            </p>
         </form>
       </div>
     </section>
