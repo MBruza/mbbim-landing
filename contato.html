@@ -59,29 +59,24 @@
               <label for="nome">Nome</label>
               <input type="text" id="nome" name="nome" required />
           </div>
-      
+        
           <div class="field">
               <label for="email">E-mail</label>
               <input type="email" id="email" name="email" required />
           </div>
-      
+        
           <div class="field">
               <label for="empresa">Empresa (opcional)</label>
               <input type="text" id="empresa" name="empresa" />
           </div>
-      
+        
           <div class="field">
               <label for="mensagem">Mensagem</label>
               <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
           </div>
-      
+        
           <button type="submit" class="btn primary full">Enviar mensagem</button>
-      
-          <p id="contact-success" 
-             style="display:none; margin-top:1rem; color:#2c8688; font-weight:500;">
-              ✔ Sua mensagem foi enviada com sucesso! Obrigado pelo contato.
-          </p>
-      </form>
+        </form>
       </div>
     </section>
   </main>
@@ -96,44 +91,64 @@
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
+    // Ano no rodapé
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  
+    // Menu mobile
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
-
-    navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("nav-open");
-    });
-  </script>
-  <script>
-  document.getElementById("contact-form").addEventListener("submit", async function(e) {
-      e.preventDefault(); // impede o redirecionamento
-  
-      const form = e.target;
-      const data = new FormData(form);
-  
-      const response = await fetch("https://formspree.io/f/mrbvqjqo", {
-          method: "POST",
-          body: data,
-          headers: { "Accept": "application/json" }
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-open");
       });
+    }
   
-      if (response.ok) {
-          // limpa o formulário
-          form.reset();
+    // Formulário de contato → Formspree + redirecionar para contato-sucesso.html
+    (function () {
+      const form = document.getElementById("contact-form");
+      if (!form) return; // se a página não tiver formulário, não faz nada
   
-          // mostra mensagem de sucesso
-          document.getElementById("contact-success").style.display = "block";
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault(); // evita envio padrão / redirecionamento do navegador
   
-          // rolar suavemente até a mensagem
-          document.getElementById("contact-success").scrollIntoView({
-              behavior: "smooth"
+        const data = new FormData(form);
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton ? submitButton.textContent : null;
+  
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = "Enviando...";
+        }
+  
+        try {
+          const response = await fetch("https://formspree.io/f/mrbvqjqo", {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" },
           });
   
-      } else {
-          alert("Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.");
-      }
-  });
+          if (response.ok) {
+            // redireciona para a página de sucesso da MBBIM
+            window.location.href = "contato-sucesso.html";
+          } else {
+            alert("Não foi possível enviar sua mensagem. Tente novamente em alguns instantes.");
+            if (submitButton && originalText) {
+              submitButton.disabled = false;
+              submitButton.textContent = originalText;
+            }
+          }
+        } catch (err) {
+          alert("Ocorreu um erro de conexão ao enviar o formulário. Verifique sua internet e tente novamente.");
+          if (submitButton && originalText) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }
+        }
+      });
+    })();
   </script>
 </body>
 </html>
