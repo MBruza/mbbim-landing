@@ -167,8 +167,12 @@ h3,
     font-weight: 500;
     text-decoration: none;
     border: 1px solid transparent;
-    transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.2s ease,
-        border-color 0.2s ease, color 0.2s ease;
+    transition:
+        transform 0.1s ease,
+        box-shadow 0.15s ease,
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
     white-space: nowrap;
 }
 
@@ -495,59 +499,6 @@ h3,
     font-size: 0.8rem;
 }
 
-/* Responsivo */
-@media (max-width: 900px) {
-    .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .two-column {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .cards-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .portfolio-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
-@media (max-width: 700px) {
-    .nav-links {
-        position: absolute;
-        inset: 56px 1.5rem auto;
-        background: rgba(5, 11, 12, 0.98);
-        border-radius: 0.9rem;
-        border: 1px solid rgba(73, 85, 90, 0.9);
-        padding: 0.8rem 1rem;
-        display: none;
-        flex-direction: column;
-        gap: 0.7rem;
-    }
-
-    .nav-links.nav-open {
-        display: flex;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    .hero {
-        padding-top: 3.2rem;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
-
 /* Espaço extra para o botão na seção Sobre da home */
 #sobre .btn {
     margin-top: 1.25rem;
@@ -569,21 +520,7 @@ h3,
 
 /* Ajuste da posição de rolagem para evitar cortar títulos */
 section {
-    scroll-margin-top: 80px; /* pode ajustar para 70 ou 90 dependendo da navbar */
-}
-
-/* Ajuste da logo no mobile */
-@media (max-width: 600px) {
-    .logo-area {
-        padding-left: 22px; /* ajuste fino—pode aumentar para 14 ou 16 se quiser */
-    }
-}
-
-/* Ajuste fino: alinhar logo com coluna de texto principal no desktop */
-@media (min-width: 901px) {
-    .logo-area {
-        margin-left: 22px; /* se ainda parecer desalinhado, pode testar 4px ou 6px */
-    }
+    scroll-margin-top: 80px;
 }
 
 /* --------------------------- */
@@ -594,8 +531,8 @@ section {
 #sobre-mbbim .about-company-detailed,
 #sobre-murilo .about-header,
 #sobre-murilo .about-text-long {
-    max-width: 78ch;               /* largura mais elegante */
-    margin-left: 0;                /* alinhado à esquerda */
+    max-width: 78ch;
+    margin-left: 0;
 }
 
 /* Eyebrow */
@@ -645,10 +582,10 @@ section {
     padding-bottom: 4rem;
 }
 
-/* Foto + formação ao lado — refeito */
+/* Foto + formação ao lado */
 .about-grid {
     display: grid;
-    grid-template-columns: 340px auto;  /* foto maior */
+    grid-template-columns: 340px auto;
     gap: 2.5rem;
     align-items: start;
 }
@@ -661,7 +598,7 @@ section {
 
 .about-avatar {
     width: 100%;
-    max-width: 340px;               /* AQUI AUMENTA A FOTO */
+    max-width: 340px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 1.35rem;
@@ -675,7 +612,7 @@ section {
 }
 
 .about-header p {
-    margin-top: 1.4rem;      /* MESMO espaçamento dos outros blocos */
+    margin-top: 1.4rem;
 }
 
 /* Texto longo abaixo */
@@ -685,7 +622,7 @@ section {
 }
 
 .about-text-long p + p {
-    margin-top: 1.4rem;      /* Agora igual ao texto de cima */
+    margin-top: 1.4rem;
 }
 
 /* Bullets */
@@ -720,45 +657,18 @@ section {
     font-size: 0.9rem;
 }
 
-/* ------------------ */
-/* MOBILE             */
-/* ------------------ */
-
-@media (max-width: 900px) {
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 1.8rem;
-    }
-
-    .about-photo {
-        order: -1;
-    }
-
-    .about-avatar {
-        max-width: 260px; 
-        margin: 0 auto;
-    }
-
-    #sobre-mbbim .about-company-detailed,
-    #sobre-murilo .about-header,
-    #sobre-murilo .about-text-long {
-        max-width: 100%;
-    }
-}
-
 /* --------------------------- */
 /*     HOME – CTA de Contato   */
 /* --------------------------- */
 
 .contact-cta-home {
     text-align: center;
-    padding: 4rem 0 4rem; /* respiro vertical */
+    padding: 4rem 0 4rem;
 }
 
 .contact-cta-wrapper {
     max-width: 700px;
-    margin: 0 auto; /* centraliza horizontalmente */
+    margin: 0 auto;
 }
 
 .contact-cta-home h2 {
@@ -866,19 +776,6 @@ section {
     grid-template-columns: minmax(0, 1fr);
 }
 
-/* Responsivo */
-@media (max-width: 900px) {
-    .service-detail-grid,
-    .service-detail-grid-reverse {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1.8rem;
-    }
-
-    .service-detail-image img {
-        max-width: 100%;
-    }
-}
-
 /* --------------------------- */
 /* Portfólio – navegação HOME  */
 /* --------------------------- */
@@ -918,7 +815,7 @@ section {
 }
 
 #portfolio-grid-home {
-    /* já herda de .portfolio-grid, mas garantimos 3 colunas aqui */
+    /* herda de .portfolio-grid; aqui só reforçamos 3 colunas no desktop */
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -934,28 +831,6 @@ section {
     text-decoration: none;
     color: inherit;
 }
-
-/* responsivo */
-@media (max-width: 900px) {
-    .portfolio-nav-wrapper {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 1.2rem;
-        align-items: center;
-        justify-items: center;
-    }
-
-    .portfolio-arrow {
-        /* continua visível no mobile */
-        width: 34px;
-        height: 34px;
-        margin-top: 0.5rem;
-    }
-
-    #portfolio-grid-home {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
 
 /* --------------------------- */
 /* Página Projetos – detalhe   */
@@ -1004,57 +879,152 @@ section {
     line-height: 1.7;
 }
 
-/* Responsivo */
+/* Área da imagem de portfólio (com <img>) */
+.portfolio-image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #0f1a20;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* --------------------------- */
+/* Breakpoints                 */
+/* --------------------------- */
+
+/* Até ~900px: colunas viram 1 col / 2 col conforme necessário */
 @media (max-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .two-column {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .cards-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+
+    .about-photo {
+        order: -1;
+    }
+
+    .about-avatar {
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    #sobre-mbbim .about-company-detailed,
+    #sobre-murilo .about-header,
+    #sobre-murilo .about-text-long {
+        max-width: 100%;
+    }
+
+    .service-detail-grid,
+    .service-detail-grid-reverse {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.8rem;
+    }
+
+    .service-detail-image img {
+        max-width: 100%;
+    }
+
+    .portfolio-nav-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.2rem;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .portfolio-arrow {
+        width: 34px;
+        height: 34px;
+        margin-top: 0.5rem;
+    }
+
+    #portfolio-grid-home {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .project-detail-grid {
         grid-template-columns: minmax(0, 1fr);
         gap: 1.8rem;
     }
 }
 
-/* Área da imagem */
-.portfolio-image-wrapper {
-  width: 100%;
-  height: 220px;          /* altura fixa do preview */
-  overflow: hidden;
-  background: #0f1a20;    /* cor de fundo enquanto carrega */
-}
-
-/* Imagem em si */
-.portfolio-image {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;      /* preenche o espaço sem distorcer */
-  object-position: center;
-}
-
-/* Opcional: um pouco menor no mobile */
-@media (max-width: 768px) {
-  .portfolio-image-wrapper {
-    height: 180px;
-  }
-}
-
-/* Ajuste do ícone de navegação (hambúrguer) no mobile */
+/* Mobile principal até 700px: nav colapsa + portfólio 1 coluna */
 @media (max-width: 700px) {
-  .nav-toggle {
-    margin-right: 22px;  /* pode testar 8, 10, 12px até achar o ponto ideal */
-  }
+
+    .nav-links {
+        position: absolute;
+        inset: 56px 1.5rem auto;
+        background: rgba(5, 11, 12, 0.98);
+        border-radius: 0.9rem;
+        border: 1px solid rgba(73, 85, 90, 0.9);
+        padding: 0.8rem 1rem;
+        display: none;
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .nav-links.nav-open {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: block;
+        margin-right: 22px;
+    }
+
+    .hero {
+        padding-top: 3.2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
+/* Ajuste da logo no mobile bem estreito */
+@media (max-width: 600px) {
+    .logo-area {
+        padding-left: 22px;
+    }
+}
 
+/* Altura menor da imagem em telas médias */
+@media (max-width: 768px) {
+    .portfolio-image-wrapper {
+        height: 180px;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Ajuste fino: alinhar logo com coluna de texto principal no desktop */
+@media (min-width: 901px) {
+    .logo-area {
+        margin-left: 22px;
+    }
+}
