@@ -1034,6 +1034,23 @@ section {
   }
 }
 
+/* Ajuste das setas do carrossel no mobile */
+@media (max-width: 600px) {
+  .portfolio-arrow {
+    right: 12px !important;   /* afasta a seta direita */
+    left: 12px !important;    /* afasta a seta esquerda */
+  }
+
+  /* Remove overlap entre elas */
+  #projects-prev {
+    left: 8px !important;
+  }
+
+  #projects-next {
+    right: 8px !important;
+  }
+}
+
 
 
 
