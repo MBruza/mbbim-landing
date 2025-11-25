@@ -1034,22 +1034,15 @@ section {
   }
 }
 
-/* Ajuste das setas do carrossel no mobile */
-@media (max-width: 600px) {
-  .portfolio-arrow {
-    right: 18px !important;   /* afasta a seta direita */
-    left: 18px !important;    /* afasta a seta esquerda */
-  }
-
-  /* Remove overlap entre elas */
-  #projects-prev {
-    left: 8px !important;
-  }
-
-  #projects-next {
-    right: 8px !important;
+/* Ajuste do ícone de navegação (hambúrguer) no mobile */
+@media (max-width: 700px) {
+  .nav-toggle {
+    margin-right: 22px;  /* pode testar 8, 10, 12px até achar o ponto ideal */
   }
 }
+
+
+
 
 
 
