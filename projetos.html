@@ -239,31 +239,31 @@
         ]
       }
     ];
-
+  
     const gridProjetos = document.getElementById("portfolio-grid-projetos");
     const imgDetail = document.getElementById("project-detail-image");
     const titleDetail = document.getElementById("project-detail-title");
     const tagsDetail = document.getElementById("project-detail-tags");
     const bodyDetail = document.getElementById("project-detail-body");
-    const bulletsDetail = document.getElementById("project-detail-bullets");
-
+    const bodyList = document.getElementById("project-detail-bullets");
+  
     const prevBtn = document.getElementById("projects-prev");
     const nextBtn = document.getElementById("projects-next");
-
+  
     const VISIBLE_CARDS = 3;
-    let projectStartIndex = 0;      // primeiro card visível no carrossel
-    let currentProjectId = null;    // projeto atualmente selecionado no detalhe
-
+    let projectStartIndex = 0;   // primeiro card visível
+    let currentProjectId = null; // projeto selecionado no detalhe
+  
     function renderProjectsCarousel(activeId) {
       gridProjetos.innerHTML = "";
-
+  
       for (let i = 0; i < VISIBLE_CARDS; i++) {
         const idx = (projectStartIndex + i) % PROJECTS.length;
         const project = PROJECTS[idx];
-
+  
         const card = document.createElement("article");
         card.className = "portfolio-card" + (project.id === activeId ? " active" : "");
-
+  
         card.innerHTML = `
           <button class="portfolio-card-button" type="button" data-project-id="${project.id}">
             <div class="portfolio-body">
@@ -275,11 +275,10 @@
             </div>
           </button>
         `;
-
+  
         gridProjetos.appendChild(card);
       }
-
-      // listeners dos 3 cards visíveis
+  
       gridProjetos.querySelectorAll(".portfolio-card-button").forEach(btn => {
         btn.addEventListener("click", () => {
           const id = btn.getAttribute("data-project-id");
@@ -287,31 +286,44 @@
         });
       });
     }
-
+  
     function setActiveProject(id, updateUrl) {
-      const project = PROJECTS.find(p => p.id === id) || PROJECTS[0];
-
-      // detalhe principal
+      let projectIndex = PROJECTS.findIndex(p => p.id === id);
+      if (projectIndex === -1) projectIndex = 0;
+  
+      const project = PROJECTS[projectIndex];
+  
+      // Atualiza o detalhe
       imgDetail.src = project.image;
       imgDetail.alt = project.title;
       titleDetail.textContent = project.title;
       tagsDetail.innerHTML = project.tags.map(t => `<li>${t}</li>`).join("");
       bodyDetail.textContent = project.detail;
-
-      // bullets (se existirem)
-      if (bulletsDetail) {
-        if (project.bullets && project.bullets.length) {
-          bulletsDetail.innerHTML = project.bullets.map(b => `<li>${b}</li>`).join("");
-          bulletsDetail.style.display = "block";
+  
+      if (bodyList) {
+        bodyList.innerHTML = (project.bullets || [])
+          .map(item => `<li>${item}</li>`)
+          .join("");
+      }
+  
+      currentProjectId = project.id;
+  
+      // Ajusta a janela do carrossel para garantir que o ativo apareça
+      if (PROJECTS.length <= VISIBLE_CARDS) {
+        projectStartIndex = 0;
+      } else {
+        if (projectIndex <= 1) {
+          projectStartIndex = 0;
+        } else if (projectIndex >= PROJECTS.length - 1) {
+          projectStartIndex = PROJECTS.length - VISIBLE_CARDS;
         } else {
-          bulletsDetail.innerHTML = "";
-          bulletsDetail.style.display = "none";
+          projectStartIndex = projectIndex - 1;
         }
       }
-
-      currentProjectId = project.id;
+  
       renderProjectsCarousel(currentProjectId);
-
+  
+      // Atualiza a URL (?projeto=...)
       if (updateUrl) {
         const params = new URLSearchParams(window.location.search);
         params.set("projeto", project.id);
@@ -319,28 +331,30 @@
         window.history.replaceState({}, "", newUrl);
       }
     }
-
-    // projeto inicial (querystring ou primeiro)
+  
+    // Projeto inicial
     const params = new URLSearchParams(window.location.search);
     const initialId = params.get("projeto") || PROJECTS[0].id;
     setActiveProject(initialId, false);
-
-    // navegação do carrossel (anda 1 em 1)
+  
+    // Navegação pelas setas – muda o PROJETO ativo (não só a janela)
     if (prevBtn && nextBtn && gridProjetos) {
       prevBtn.addEventListener("click", () => {
-        projectStartIndex = (projectStartIndex - 1 + PROJECTS.length) % PROJECTS.length;
-        renderProjectsCarousel(currentProjectId);
+        const currentIndex = PROJECTS.findIndex(p => p.id === currentProjectId);
+        const newIndex = (currentIndex - 1 + PROJECTS.length) % PROJECTS.length;
+        setActiveProject(PROJECTS[newIndex].id, true);
       });
-
+  
       nextBtn.addEventListener("click", () => {
-        projectStartIndex = (projectStartIndex + 1) % PROJECTS.length;
-        renderProjectsCarousel(currentProjectId);
+        const currentIndex = PROJECTS.findIndex(p => p.id === currentProjectId);
+        const newIndex = (currentIndex + 1) % PROJECTS.length;
+        setActiveProject(PROJECTS[newIndex].id, true);
       });
     }
-
+  
     // Ano rodapé
     document.getElementById("year").textContent = new Date().getFullYear();
-
+  
     // Menu mobile
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
@@ -349,22 +363,22 @@
         navLinks.classList.toggle("nav-open");
       });
     }
-
+  
     // Popup da imagem
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const closeBtn = document.getElementById("modal-close");
-
+  
     imgDetail.addEventListener("click", () => {
       if (!imgDetail.src) return;
       modalImg.src = imgDetail.src;
       modal.style.display = "flex";
     });
-
+  
     closeBtn.addEventListener("click", () => {
       modal.style.display = "none";
     });
-
+  
     modal.addEventListener("click", (e) => {
       if (e.target === modal) {
         modal.style.display = "none";
