@@ -320,30 +320,33 @@
     const portfolioGridHome = document.getElementById("portfolio-grid-home");
     const prevHome = document.getElementById("portfolio-prev");
     const nextHome = document.getElementById("portfolio-next");
-
-    let VISIBLE_CARDS = getVisibleCards();
-    window.addEventListener("resize", () => {
-        VISIBLE_CARDS = getVisibleCards();
-        renderProjectsCarousel(currentProjectId);
-    });
+    
     let portfolioStartIndex = 0;
-
+    
+    // decide quantos cards aparecem por vez (ajusta conforme preferir)
     function getVisibleCards() {
       return window.innerWidth <= 700 ? 2 : 3;
     }
     
+    let VISIBLE_CARDS = getVisibleCards();
+    
+    window.addEventListener("resize", () => {
+      VISIBLE_CARDS = getVisibleCards();
+      renderHomePortfolio();
+    });
+    
     function renderHomePortfolio() {
       if (!portfolioGridHome) return;
-
+    
       portfolioGridHome.innerHTML = "";
-
-      for (let i = 0; i < VISIBLE_CARDS_HOME; i++) {
+    
+      for (let i = 0; i < VISIBLE_CARDS; i++) {
         const idx = (portfolioStartIndex + i) % PROJECTS.length;
         const project = PROJECTS[idx];
-
+    
         const card = document.createElement("article");
         card.className = "portfolio-card";
-
+    
         card.innerHTML = `
           <button class="portfolio-card-button" type="button" data-project-id="${project.id}">
             <div class="portfolio-body">
@@ -355,10 +358,10 @@
             </div>
           </button>
         `;
-
+    
         portfolioGridHome.appendChild(card);
       }
-
+    
       // clique em card → vai para a página de projetos com o item em destaque
       portfolioGridHome.querySelectorAll(".portfolio-card-button").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -370,12 +373,12 @@
     
     if (portfolioGridHome && prevHome && nextHome) {
       renderHomePortfolio();
-
+    
       prevHome.addEventListener("click", () => {
         portfolioStartIndex = (portfolioStartIndex - 1 + PROJECTS.length) % PROJECTS.length;
         renderHomePortfolio();
       });
-
+    
       nextHome.addEventListener("click", () => {
         portfolioStartIndex = (portfolioStartIndex + 1) % PROJECTS.length;
         renderHomePortfolio();
@@ -384,5 +387,6 @@
   </script>
 </body>
 </html>
+
 
 
