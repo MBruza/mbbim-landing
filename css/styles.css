@@ -1071,9 +1071,9 @@ section {
         padding-top: 3.2rem;
     }
 
-    /* só a HOME fica 1 coluna; demais grids de portfólio seguem em 2 col */
+    /* HOME: 2 colunas no mobile (2 cards lado a lado) */
     #portfolio-grid-home {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .portfolio-arrow {
@@ -1103,3 +1103,4 @@ section {
         margin-left: 22px;
     }
 }
+
