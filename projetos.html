@@ -57,6 +57,30 @@
       justify-content: center;
       cursor: pointer;
     }
+
+    /* Bullets do detalhe do projeto */
+    .project-detail-bullets {
+      list-style: none;
+      margin-top: 1.2rem;
+      padding-left: 0;
+    }
+
+    .project-detail-bullets li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      color: #d0d0d0;
+      line-height: 1.6;
+    }
+
+    .project-detail-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #2c8688;
+    }
   </style>
 </head>
 
@@ -117,6 +141,9 @@
           <h2 id="project-detail-title"></h2>
           <ul class="portfolio-tags" id="project-detail-tags"></ul>
           <p id="project-detail-body"></p>
+
+          <!-- AQUI entram os bullets -->
+          <ul class="project-detail-bullets" id="project-detail-bullets"></ul>
         </div>
       </div>
     </section>
@@ -252,6 +279,7 @@
     const titleDetail = document.getElementById("project-detail-title");
     const tagsDetail = document.getElementById("project-detail-tags");
     const bodyDetail = document.getElementById("project-detail-body");
+    const bulletsDetail = document.getElementById("project-detail-bullets");
 
     const prevBtn = document.getElementById("projects-prev");
     const nextBtn = document.getElementById("projects-next");
@@ -297,11 +325,23 @@
     function setActiveProject(id, updateUrl) {
       const project = PROJECTS.find(p => p.id === id) || PROJECTS[0];
 
+      // detalhe principal
       imgDetail.src = project.image;
       imgDetail.alt = project.title;
       titleDetail.textContent = project.title;
       tagsDetail.innerHTML = project.tags.map(t => `<li>${t}</li>`).join("");
-      bodyDetail.textContent = project.detail; // futuramente dá pra trocar para bullets
+      bodyDetail.textContent = project.detail;
+
+      // bullets (se existirem)
+      if (bulletsDetail) {
+        if (project.bullets && project.bullets.length) {
+          bulletsDetail.innerHTML = project.bullets.map(b => `<li>${b}</li>`).join("");
+          bulletsDetail.style.display = "block";
+        } else {
+          bulletsDetail.innerHTML = "";
+          bulletsDetail.style.display = "none";
+        }
+      }
 
       currentProjectId = project.id;
       renderProjectsCarousel(currentProjectId);
