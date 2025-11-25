@@ -340,6 +340,18 @@ h3,
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        border-color 0.15s ease,
+        background 0.2s ease;
+}
+
+/* Hover suave para cards de portfólio (home + projetos) */
+.portfolio-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+    border-color: rgba(178, 178, 178, 0.85);
 }
 
 .portfolio-thumb {
@@ -928,10 +940,15 @@ section {
     .portfolio-nav-wrapper {
         grid-template-columns: minmax(0, 1fr);
         gap: 1.2rem;
+        align-items: center;
+        justify-items: center;
     }
 
     .portfolio-arrow {
-        display: none;
+        /* continua visível no mobile */
+        width: 34px;
+        height: 34px;
+        margin-top: 0.5rem;
     }
 
     #portfolio-grid-home {
@@ -939,11 +956,6 @@ section {
     }
 }
 
-@media (max-width: 700px) {
-    #portfolio-grid-home {
-        grid-template-columns: minmax(0, 1fr);
-    }
-}
 
 /* --------------------------- */
 /* Página Projetos – detalhe   */
@@ -1000,16 +1012,6 @@ section {
     }
 }
 
-/* Card do portfólio */
-.portfolio-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #050b10;
-  border: 1px solid #1b2730;
-}
-
 /* Área da imagem */
 .portfolio-image-wrapper {
   width: 100%;
@@ -1040,6 +1042,7 @@ section {
     margin-right: 22px;  /* pode testar 8, 10, 12px até achar o ponto ideal */
   }
 }
+
 
 
 
