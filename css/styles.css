@@ -1037,8 +1037,8 @@ section {
 /* Ajuste das setas do carrossel no mobile */
 @media (max-width: 600px) {
   .portfolio-arrow {
-    right: 12px !important;   /* afasta a seta direita */
-    left: 12px !important;    /* afasta a seta esquerda */
+    right: 18px !important;   /* afasta a seta direita */
+    left: 18px !important;    /* afasta a seta esquerda */
   }
 
   /* Remove overlap entre elas */
@@ -1050,6 +1050,7 @@ section {
     right: 8px !important;
   }
 }
+
 
 
 
