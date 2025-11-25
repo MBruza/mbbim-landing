@@ -250,10 +250,18 @@
     const prevBtn = document.getElementById("projects-prev");
     const nextBtn = document.getElementById("projects-next");
   
-    const VISIBLE_CARDS = 3;
+    let VISIBLE_CARDS = getVisibleCards();
+    window.addEventListener("resize", () => {
+        VISIBLE_CARDS = getVisibleCards();
+        renderProjectsCarousel(currentProjectId);
+    });
     let projectStartIndex = 0;   // primeiro card visível
     let currentProjectId = null; // projeto selecionado no detalhe
-  
+
+    function getVisibleCards() {
+      return window.innerWidth <= 700 ? 2 : 3;
+    }
+    
     function renderProjectsCarousel(activeId) {
       gridProjetos.innerHTML = "";
   
