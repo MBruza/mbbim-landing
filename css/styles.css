@@ -777,9 +777,85 @@ section {
 }
 
 /* --------------------------- */
-/* Portfólio – navegação HOME  */
+/* Portfólio (cards + navegação)
 /* --------------------------- */
 
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.4rem;
+}
+
+.portfolio-card {
+    border-radius: 1.1rem;
+    border: 1px solid rgba(73, 85, 90, 0.9);
+    background: #050b0c;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        border-color 0.15s ease,
+        background 0.2s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+    border-color: rgba(178, 178, 178, 0.85);
+}
+
+.portfolio-thumb {
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.portfolio-thumb.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, rgba(44, 134, 136, 0.5), #050b0c);
+    color: #d0d0d0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.portfolio-body {
+    padding: 1rem 1rem 1.1rem;
+}
+
+.portfolio-body h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    color: #ffffff;
+}
+
+.portfolio-body p {
+    font-size: 0.9rem;
+    color: #d0d0d0;
+    margin-bottom: 0.7rem;
+}
+
+.portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+.portfolio-tags li {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(178, 178, 178, 0.6);
+    color: #f5f5f5;
+}
+
+/* Navegação (setas + grid) – usado na home e projetos */
 .portfolio-nav-wrapper {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
@@ -814,14 +890,9 @@ section {
     box-shadow: none;
 }
 
+/* grid específico da home (herda de .portfolio-grid) */
 #portfolio-grid-home {
-    /* herda de .portfolio-grid; aqui só reforçamos 3 colunas no desktop */
     grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.portfolio-cta {
-    margin-top: 2.2rem;
-    text-align: center;
 }
 
 /* link interno do card para não quebrar o estilo atual */
@@ -832,11 +903,13 @@ section {
     color: inherit;
 }
 
-/* --------------------------- */
-/* Página Projetos – detalhe   */
-/* --------------------------- */
+/* CTA geral */
+.portfolio-cta {
+    margin-top: 2.2rem;
+    text-align: center;
+}
 
-/* Card ativo na lista de projetos */
+/* Página Projetos – detalhe */
 .portfolio-card.active {
     border-color: rgba(44, 134, 136, 0.9);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
@@ -851,7 +924,6 @@ section {
     cursor: pointer;
 }
 
-/* Grid do detalhe */
 .project-detail-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
@@ -965,17 +1037,13 @@ section {
         margin-top: 0.5rem;
     }
 
-    #portfolio-grid-home {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .project-detail-grid {
         grid-template-columns: minmax(0, 1fr);
         gap: 1.8rem;
     }
 }
 
-/* Mobile principal até 700px: nav colapsa + portfólio 1 coluna */
+/* Mobile principal até 700px: nav colapsa + portfólio HOME em 1 coluna */
 @media (max-width: 700px) {
 
     .nav-links {
@@ -1003,8 +1071,15 @@ section {
         padding-top: 3.2rem;
     }
 
-    .portfolio-grid {
+    /* só a HOME fica 1 coluna; demais grids de portfólio seguem em 2 col */
+    #portfolio-grid-home {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .portfolio-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
     }
 }
 
