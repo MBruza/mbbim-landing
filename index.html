@@ -241,58 +241,42 @@
     }
 
     // ===========================
-    // PROJETOS (6 itens) – usado na HOME
+    // PROJETOS (4 itens)
     // ===========================
     const PROJECTS = [
       {
-        id: "implantacao-bim-regras",
-        title: "Implantação de BIM com Regras de Verificação Automáticas",
+        id: "implantacao-bim-automacao-quantitativos",
+        title: "Implantação BIM com Automação de Verificação e Quantificação",
         shortDescription:
-          "Implantação de BIM com padrões e regras automáticas para elevar a confiabilidade dos modelos.",
+          "Implantação de BIM com padrões, regras automáticas e quantitativos confiáveis diretamente dos modelos.",
         image: "img/projetos/implantacao-bim-regras.png",
-        tags: ["Implantação BIM", "Verificação", "Processos"],
+        tags: ["Implantação BIM", "Verificação", "Quantitativos"],
         detail:
-          "Projeto focado em estruturar a implantação de BIM conectando padrões de modelagem a regras automáticas de verificação. Foram definidos fluxos, responsabilidades e critérios de qualidade, com checks objetivos aplicados diretamente nos modelos."
+          "Implantação de BIM em uma construtora, com definição de processos, padronização de parâmetros, criação de regras automáticas de verificação e estruturação de rotinas para extração de quantitativos confiáveis diretamente dos modelos.",
+        bullets: [
+          "Mapeamento de processos e diagnóstico de maturidade BIM.",
+          "Padronização de modelos, parâmetros e classificações.",
+          "Criação de regras automatizadas para verificação de qualidade.",
+          "Estruturação de modelos para extração de quantitativos consistentes.",
+          "Treinamento e acompanhamento da equipe no uso dos novos fluxos."
+        ]
       },
       {
-        id: "quantitativos-orcamentos",
-        title: "Extração de Quantitativos de Modelos para Orçamentos",
+        id: "planejamento-4d-logistica-automacao",
+        title: "Planejamento 4D Integrado com Logística e Automação da Produção",
         shortDescription:
-          "Estruturação de modelos e rotinas para gerar quantitativos confiáveis para orçamentos.",
-        image: "img/projetos/quantitativos-orcamentos.png",
-        tags: ["Quantitativos", "IFC", "Orçamento"],
-        detail:
-          "O trabalho consistiu em transformar modelos em bases de quantitativos consistentes para orçamento. A partir da padronização de informações e definição de critérios de medição, foram criadas rotinas que alimentam planilhas e análises de custo."
-      },
-      {
-        id: "simulacao-4d-logistica",
-        title: "Simulação 4D e Plano Logístico de Início de Obra",
-        shortDescription:
-          "Simulações 4D e estudos logísticos para organizar a fase inicial da obra.",
+          "Simulações 4D combinadas com estudos logísticos e automação da sequência de produção de estacas.",
         image: "img/projetos/simulacao-4d-logistica.png",
-        tags: ["4D", "Logística", "Planejamento"],
+        tags: ["Planejamento 4D", "Logística de Obra", "Automação"],
         detail:
-          "Integração de modelo 3D, cronograma e logística para organizar a fase inicial da obra. As simulações 4D e estudos de ocupação de áreas permitiram antecipar conflitos e comunicar com clareza o plano de ataque às equipes."
-      },
-      {
-        id: "automatizacao-estacas",
-        title: "Automatização do Planejamento da Produção de Estacas",
-        shortDescription:
-          "Automatização da lógica de sequência de produção de estacas para reduzir retrabalho.",
-        image: "img/projetos/automatizacao-estacas.png",
-        tags: ["Planejamento", "Estacas", "Automação"],
-        detail:
-          "Automatização do planejamento da produção de estacas, conectando informações de projeto e regras de execução a uma rotina estruturada. A ferramenta reduz o esforço manual e facilita a criação de cenários de execução."
-      },
-      {
-        id: "vdc-montagem-eletromecanica",
-        title: "Aplicação de VDC em Montagem Eletromecânica",
-        shortDescription:
-          "Integração entre modelo, planejamento e logística na montagem eletromecânica.",
-        image: "img/projetos/vdc-montagem-eletromecanica.png",
-        tags: ["VDC", "Eletromecânica", "4D"],
-        detail:
-          "Aplicação de Virtual Design and Construction na montagem eletromecânica de equipamento de grande porte. O modelo 3D foi integrado ao cronograma e à estratégia de montagem, apoiando análises de sequência e riscos."
+          "Desenvolvimento de simulações 4D combinadas com estudo logístico e automação da sequência de produção de estacas, permitindo testar cenários, antecipar interferências e melhorar a previsibilidade da obra.",
+        bullets: [
+          "Integração entre modelo BIM, cronograma e estratégias executivas.",
+          "Simulações 4D para validação de sequências construtivas.",
+          "Planejamento logístico de início de obra com modelagem de canteiro.",
+          "Automação da lógica de produção de estacas com regras configuráveis.",
+          "Comunicação visual do plano de ataque para equipes de obra."
+        ]
       },
       {
         id: "auditoria-modelos-ifc",
@@ -300,9 +284,33 @@
         shortDescription:
           "Auditoria sistemática de modelos IFC para garantir consistência e qualidade de dados.",
         image: "img/projetos/auditoria-ifc.png",
-        tags: ["IFC", "Qualidade", "Model Checking"],
+        tags: ["IFC", "Qualidade de Dados", "Model Checking"],
         detail:
-          "Auditoria recorrente de modelos IFC de diferentes disciplinas, avaliando qualidade de dados e critérios de modelagem. Foram criados checklists objetivos, relatórios e acompanhamento da evolução ao longo do ciclo de projeto."
+          "Auditoria completa de modelos IFC recebidos de múltiplos projetistas, com verificação de estrutura de dados, parâmetros, nomenclatura e consistência geométrica, garantindo modelos confiáveis para uso em coordenação e quantificação.",
+        bullets: [
+          "Definição de checklists e critérios de qualidade alinhados ao cliente.",
+          "Verificação automática de parâmetros, hierarquias e classificações.",
+          "Relatórios de inconsistências e priorização de correções.",
+          "Padronização da estrutura IFC para uso em análises e dashboards.",
+          "Acompanhamento de ajustes de modelagem com projetistas."
+        ]
+      },
+      {
+        id: "vdc-montagem-eletromecanica",
+        title: "Aplicação de VDC em Montagem Eletromecânica",
+        shortDescription:
+          "Integração entre modelo, planejamento e logística na montagem eletromecânica de equipamento de grande porte.",
+        image: "img/projetos/vdc-montagem-eletromecanica.png",
+        tags: ["VDC", "Eletromecânica", "Planejamento 4D"],
+        detail:
+          "Aplicação de Virtual Design and Construction (VDC) na montagem eletromecânica de equipamento de grande porte, integrando modelo 3D, planejamento, logística e navegação em realidade virtual para comunicação do processo.",
+        bullets: [
+          "Preparação e organização do modelo 3D com milhares de componentes.",
+          "Simulações de montagem e análise de interferências.",
+          "Planejamento 4D integrado à estratégia executiva.",
+          "Estudos de logística de içamento, montagem e acessos.",
+          "Versões navegáveis do modelo para uso em realidade virtual."
+        ]
       }
     ];
 
@@ -368,3 +376,4 @@
   </script>
 </body>
 </html>
+
