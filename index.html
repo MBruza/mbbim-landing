@@ -321,9 +321,17 @@
     const prevHome = document.getElementById("portfolio-prev");
     const nextHome = document.getElementById("portfolio-next");
 
-    const VISIBLE_CARDS_HOME = 3;
+    let VISIBLE_CARDS = getVisibleCards();
+    window.addEventListener("resize", () => {
+        VISIBLE_CARDS = getVisibleCards();
+        renderProjectsCarousel(currentProjectId);
+    });
     let portfolioStartIndex = 0;
 
+    function getVisibleCards() {
+      return window.innerWidth <= 700 ? 2 : 3;
+    }
+    
     function renderHomePortfolio() {
       if (!portfolioGridHome) return;
 
@@ -359,7 +367,7 @@
         });
       });
     }
-
+    
     if (portfolioGridHome && prevHome && nextHome) {
       renderHomePortfolio();
 
@@ -376,4 +384,5 @@
   </script>
 </body>
 </html>
+
 
